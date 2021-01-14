@@ -8,7 +8,6 @@ const IS_PROD = NODE_ENV==='production';
 function setupDevtool(){
 	if(IS_DEV)return 'eval';
 	if(IS_PROD)return false;
-	
 };
 
 module.exports = {
