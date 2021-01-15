@@ -22,6 +22,23 @@ module.exports = {
 			use: [
 				'ts-loader'
 			]
+		},
+		{
+			test: /\.less$/i,
+			use: [
+				{
+					loader: 'css-loader',
+					options: {
+						modules: {
+							mode: 'local',
+							localIdentName: '[name]__[local]--[hash:base64:5]',
+							exportOnlyLocals: true,
+						},
+						//onlyLocals: true,
+					}
+				},
+				'less-loader',
+			]
 		}
 		]
 	},
