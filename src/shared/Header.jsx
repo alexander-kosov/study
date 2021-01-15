@@ -1,6 +1,7 @@
 import * as React from 'react';
+import { hot } from 'react-hot-loader/root';
 
-export function Header(){
+function HeaderComponent(){
 	
 	return (
 		<header>
@@ -8,3 +9,4 @@ export function Header(){
 		</header>
 	)
 }
+export const Header = hot(HeaderComponent);
