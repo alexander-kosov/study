@@ -106,7 +106,7 @@ eval("\r\n/*\r\n  MIT License http://www.opensource.org/licenses/mit-license.php
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.App = void 0;\r\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\r\nvar root_1 = __webpack_require__(/*! react-hot-loader/root */ \"react-hot-loader/root\");\r\nvar Layout_1 = __importDefault(__webpack_require__(/*! ./shared/Layout */ \"./src/shared/Layout/index.ts\"));\r\n__webpack_require__(/*! ./main.global.css */ \"./src/main.global.css\");\r\nvar Header_1 = __importDefault(__webpack_require__(/*! ./shared/Header */ \"./src/shared/Header/index.ts\"));\r\nvar Content_1 = __importDefault(__webpack_require__(/*! ./shared/Content */ \"./src/shared/Content/index.ts\"));\r\nvar CardsList_1 = __importDefault(__webpack_require__(/*! ./shared/CardsList */ \"./src/shared/CardsList/index.ts\"));\r\nfunction AppComponent() {\r\n    return (react_1.default.createElement(Layout_1.default, null,\r\n        react_1.default.createElement(Header_1.default, null),\r\n        react_1.default.createElement(Content_1.default, null,\r\n            react_1.default.createElement(CardsList_1.default, null))));\r\n}\r\nexports.App = root_1.hot(AppComponent);\r\n\n\n//# sourceURL=webpack:///./src/App.tsx?");
+eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.App = void 0;\r\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\r\nvar root_1 = __webpack_require__(/*! react-hot-loader/root */ \"react-hot-loader/root\");\r\nvar Layout_1 = __importDefault(__webpack_require__(/*! ./shared/Layout */ \"./src/shared/Layout/index.ts\"));\r\n__webpack_require__(/*! ./main.global.css */ \"./src/main.global.css\");\r\nvar Header_1 = __webpack_require__(/*! ./shared/Header */ \"./src/shared/Header.jsx\");\r\nvar Content_1 = __importDefault(__webpack_require__(/*! ./shared/Content */ \"./src/shared/Content/index.ts\"));\r\nvar CardsList_1 = __importDefault(__webpack_require__(/*! ./shared/CardsList */ \"./src/shared/CardsList/index.ts\"));\r\nfunction AppComponent() {\r\n    return (react_1.default.createElement(Layout_1.default, null,\r\n        react_1.default.createElement(Header_1.Header, null),\r\n        react_1.default.createElement(Content_1.default, null,\r\n            react_1.default.createElement(CardsList_1.default, null))));\r\n}\r\nexports.App = root_1.hot(AppComponent);\r\n\n\n//# sourceURL=webpack:///./src/App.tsx?");
 
 /***/ }),
 
@@ -166,7 +166,7 @@ eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod)
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// Exports\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n\t\"card\": \"card__card--3x2Yf\",\n\t\"textContent\": \"card__textContent--1c236\",\n\t\"menu\": \"card__menu--Av5LH\",\n\t\"menuButton\": \"card__menuButton--2OuC9\",\n\t\"controls\": \"card__controls--pAChK\",\n\t\"actions\": \"card__actions--2BO7l\",\n\t\"shareButton\": \"card__shareButton--BLAl2\",\n\t\"saveButton\": \"card__saveButton--3BWJz\",\n\t\"preview\": \"card__preview--3Gbi_\",\n\t\"previewImg\": \"card__previewImg--1I4jk\",\n\t\"avatar\": \"card__avatar--1alx_\",\n\t\"metaData\": \"card__metaData--2E0ei\",\n\t\"userlink\": \"card__userlink--huZT2\",\n\t\"username\": \"card__username--1Hw5q\",\n\t\"createdAt\": \"card__createdAt--1QwYT\",\n\t\"publishedLabel\": \"card__publishedLabel--3MX_M\",\n\t\"title\": \"card__title--SPAFE\",\n\t\"postLink\": \"card__postLink--1XChw\",\n\t\"karmaCounter\": \"card__karmaCounter--1F7vK\",\n\t\"karmaValue\": \"card__karmaValue--ISBtg\",\n\t\"commentsButton\": \"card__commentsButton--1zrRS\",\n\t\"commentsNumber\": \"card__commentsNumber--1PBz1\"\n});\n\n\n//# sourceURL=webpack:///./src/shared/CardsList/Card/card.less?");
+eval("__webpack_require__.r(__webpack_exports__);\n// Exports\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n\t\"card\": \"card__card--3x2Yf\",\n\t\"textContent\": \"card__textContent--1c236\",\n\t\"menu\": \"card__menu--Av5LH\",\n\t\"menuButton\": \"card__menuButton--2OuC9\",\n\t\"controls\": \"card__controls--pAChK\",\n\t\"actions\": \"card__actions--2BO7l\",\n\t\"shareButton\": \"card__shareButton--BLAl2\",\n\t\"saveButton\": \"card__saveButton--3BWJz\",\n\t\"preview\": \"card__preview--3Gbi_\",\n\t\"previewImg\": \"card__previewImg--1I4jk\",\n\t\"avatar\": \"card__avatar--1alx_\",\n\t\"metaData\": \"card__metaData--2E0ei\",\n\t\"userLink\": \"card__userLink--2TG_m\",\n\t\"username\": \"card__username--1Hw5q\",\n\t\"createdAt\": \"card__createdAt--1QwYT\",\n\t\"publishedLabel\": \"card__publishedLabel--3MX_M\",\n\t\"title\": \"card__title--SPAFE\",\n\t\"postLink\": \"card__postLink--1XChw\",\n\t\"karmaCounter\": \"card__karmaCounter--1F7vK\",\n\t\"karmaValue\": \"card__karmaValue--ISBtg\",\n\t\"commentsButton\": \"card__commentsButton--1zrRS\",\n\t\"commentsNumber\": \"card__commentsNumber--1PBz1\"\n});\n\n\n//# sourceURL=webpack:///./src/shared/CardsList/Card/card.less?");
 
 /***/ }),
 
@@ -254,147 +254,15 @@ eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod)
 
 /***/ }),
 
-/***/ "./src/shared/Header/Header.less":
-/*!***************************************!*\
-  !*** ./src/shared/Header/Header.less ***!
-  \***************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// Exports\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n\t\"header\": \"Header__header--1t-ra\"\n});\n\n\n//# sourceURL=webpack:///./src/shared/Header/Header.less?");
-
-/***/ }),
-
-/***/ "./src/shared/Header/Header.tsx":
-/*!**************************************!*\
-  !*** ./src/shared/Header/Header.tsx ***!
-  \**************************************/
+/***/ "./src/shared/Header.jsx":
+/*!*******************************!*\
+  !*** ./src/shared/Header.jsx ***!
+  \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\r\nvar Header_less_1 = __importDefault(__webpack_require__(/*! ./Header.less */ \"./src/shared/Header/Header.less\"));\r\nvar SearchBlock_1 = __importDefault(__webpack_require__(/*! ./SearchBlock */ \"./src/shared/Header/SearchBlock/index.ts\"));\r\nvar SortBlock_1 = __importDefault(__webpack_require__(/*! ./SortBlock */ \"./src/shared/Header/SortBlock/index.ts\"));\r\nvar ThreadTitle_1 = __importDefault(__webpack_require__(/*! ./ThreadTitle */ \"./src/shared/Header/ThreadTitle/index.ts\"));\r\nfunction Header() {\r\n    return (react_1.default.createElement(\"header\", { className: Header_less_1.default.header },\r\n        react_1.default.createElement(SearchBlock_1.default, null),\r\n        react_1.default.createElement(ThreadTitle_1.default, null),\r\n        react_1.default.createElement(SortBlock_1.default, null)));\r\n}\r\nexports.default = Header;\r\n\n\n//# sourceURL=webpack:///./src/shared/Header/Header.tsx?");
-
-/***/ }),
-
-/***/ "./src/shared/Header/SearchBlock/SearchBlock.less":
-/*!********************************************************!*\
-  !*** ./src/shared/Header/SearchBlock/SearchBlock.less ***!
-  \********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// Exports\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n\t\"searchBlock\": \"SearchBlock__searchBlock--a9kwC\"\n});\n\n\n//# sourceURL=webpack:///./src/shared/Header/SearchBlock/SearchBlock.less?");
-
-/***/ }),
-
-/***/ "./src/shared/Header/SearchBlock/SearchBlock.tsx":
-/*!*******************************************************!*\
-  !*** ./src/shared/Header/SearchBlock/SearchBlock.tsx ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\r\nvar SearchBlock_less_1 = __importDefault(__webpack_require__(/*! ./SearchBlock.less */ \"./src/shared/Header/SearchBlock/SearchBlock.less\"));\r\nfunction SearchBlock() {\r\n    return (react_1.default.createElement(\"div\", { className: SearchBlock_less_1.default.searchBlock }, \"Search block\"));\r\n}\r\nexports.default = SearchBlock;\r\n\n\n//# sourceURL=webpack:///./src/shared/Header/SearchBlock/SearchBlock.tsx?");
-
-/***/ }),
-
-/***/ "./src/shared/Header/SearchBlock/index.ts":
-/*!************************************************!*\
-  !*** ./src/shared/Header/SearchBlock/index.ts ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar SearchBlock_1 = __importDefault(__webpack_require__(/*! ./SearchBlock */ \"./src/shared/Header/SearchBlock/SearchBlock.tsx\"));\r\nexports.default = SearchBlock_1.default;\r\n\n\n//# sourceURL=webpack:///./src/shared/Header/SearchBlock/index.ts?");
-
-/***/ }),
-
-/***/ "./src/shared/Header/SortBlock/SortBlock.tsx":
-/*!***************************************************!*\
-  !*** ./src/shared/Header/SortBlock/SortBlock.tsx ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\r\nvar sortblock_less_1 = __importDefault(__webpack_require__(/*! ./sortblock.less */ \"./src/shared/Header/SortBlock/sortblock.less\"));\r\nfunction SortBlock() {\r\n    return (react_1.default.createElement(\"div\", { className: sortblock_less_1.default.sortblock }, \"SortBlock dropdown\"));\r\n}\r\nexports.default = SortBlock;\r\n\n\n//# sourceURL=webpack:///./src/shared/Header/SortBlock/SortBlock.tsx?");
-
-/***/ }),
-
-/***/ "./src/shared/Header/SortBlock/index.ts":
-/*!**********************************************!*\
-  !*** ./src/shared/Header/SortBlock/index.ts ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar SortBlock_1 = __importDefault(__webpack_require__(/*! ./SortBlock */ \"./src/shared/Header/SortBlock/SortBlock.tsx\"));\r\nexports.default = SortBlock_1.default;\r\n\n\n//# sourceURL=webpack:///./src/shared/Header/SortBlock/index.ts?");
-
-/***/ }),
-
-/***/ "./src/shared/Header/SortBlock/sortblock.less":
-/*!****************************************************!*\
-  !*** ./src/shared/Header/SortBlock/sortblock.less ***!
-  \****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// Exports\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n\t\"sortblock\": \"sortblock__sortblock--3BMEt\"\n});\n\n\n//# sourceURL=webpack:///./src/shared/Header/SortBlock/sortblock.less?");
-
-/***/ }),
-
-/***/ "./src/shared/Header/ThreadTitle/ThreadTitle.tsx":
-/*!*******************************************************!*\
-  !*** ./src/shared/Header/ThreadTitle/ThreadTitle.tsx ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\r\nvar threadtitle_less_1 = __importDefault(__webpack_require__(/*! ./threadtitle.less */ \"./src/shared/Header/ThreadTitle/threadtitle.less\"));\r\nfunction ThreadTitle() {\r\n    return (react_1.default.createElement(\"h1\", { className: threadtitle_less_1.default.threadTitle }, \"Header\"));\r\n}\r\nexports.default = ThreadTitle;\r\n\n\n//# sourceURL=webpack:///./src/shared/Header/ThreadTitle/ThreadTitle.tsx?");
-
-/***/ }),
-
-/***/ "./src/shared/Header/ThreadTitle/index.ts":
-/*!************************************************!*\
-  !*** ./src/shared/Header/ThreadTitle/index.ts ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar ThreadTitle_1 = __importDefault(__webpack_require__(/*! ./ThreadTitle */ \"./src/shared/Header/ThreadTitle/ThreadTitle.tsx\"));\r\nexports.default = ThreadTitle_1.default;\r\n\n\n//# sourceURL=webpack:///./src/shared/Header/ThreadTitle/index.ts?");
-
-/***/ }),
-
-/***/ "./src/shared/Header/ThreadTitle/threadtitle.less":
-/*!********************************************************!*\
-  !*** ./src/shared/Header/ThreadTitle/threadtitle.less ***!
-  \********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// Exports\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n\t\"threadTitle\": \"threadtitle__threadTitle--1nfVh\"\n});\n\n\n//# sourceURL=webpack:///./src/shared/Header/ThreadTitle/threadtitle.less?");
-
-/***/ }),
-
-/***/ "./src/shared/Header/index.ts":
-/*!************************************!*\
-  !*** ./src/shared/Header/index.ts ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar Header_1 = __importDefault(__webpack_require__(/*! ./Header */ \"./src/shared/Header/Header.tsx\"));\r\nexports.default = Header_1.default;\r\n\n\n//# sourceURL=webpack:///./src/shared/Header/index.ts?");
+eval("\r\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\r\n    if (k2 === undefined) k2 = k;\r\n    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });\r\n}) : (function(o, m, k, k2) {\r\n    if (k2 === undefined) k2 = k;\r\n    o[k2] = m[k];\r\n}));\r\nvar __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {\r\n    Object.defineProperty(o, \"default\", { enumerable: true, value: v });\r\n}) : function(o, v) {\r\n    o[\"default\"] = v;\r\n});\r\nvar __importStar = (this && this.__importStar) || function (mod) {\r\n    if (mod && mod.__esModule) return mod;\r\n    var result = {};\r\n    if (mod != null) for (var k in mod) if (k !== \"default\" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);\r\n    __setModuleDefault(result, mod);\r\n    return result;\r\n};\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.Header = void 0;\r\nvar React = __importStar(__webpack_require__(/*! react */ \"react\"));\r\nvar root_1 = __webpack_require__(/*! react-hot-loader/root */ \"react-hot-loader/root\");\r\nvar header_less_1 = __importDefault(__webpack_require__(/*! ./header.less */ \"./src/shared/header.less\"));\r\nfunction HeaderComponent() {\r\n    console.log(header_less_1.default);\r\n    return (React.createElement(\"header\", { className: header_less_1.default.header },\r\n        React.createElement(\"h1\", { className: header_less_1.default.example }, \"Hello React\")));\r\n}\r\nexports.Header = root_1.hot(HeaderComponent);\r\n\n\n//# sourceURL=webpack:///./src/shared/Header.jsx?");
 
 /***/ }),
 
@@ -431,6 +299,18 @@ eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod)
 
 "use strict";
 eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar Layout_1 = __importDefault(__webpack_require__(/*! ./Layout */ \"./src/shared/Layout/Layout.tsx\"));\r\nexports.default = Layout_1.default;\r\n\n\n//# sourceURL=webpack:///./src/shared/Layout/index.ts?");
+
+/***/ }),
+
+/***/ "./src/shared/header.less":
+/*!********************************!*\
+  !*** ./src/shared/header.less ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// Exports\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n\t\"header\": \"header__header--1BKOD\",\n\t\"example\": \"header__example--2zBOL\",\n\t\"example_small\": \"header__example_small--2a3qv\"\n});\n\n\n//# sourceURL=webpack:///./src/shared/header.less?");
 
 /***/ }),
 
