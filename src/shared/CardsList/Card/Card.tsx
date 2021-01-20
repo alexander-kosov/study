@@ -14,7 +14,7 @@ export default function Card (){
                         alt="avatar"/>
                         <a href="#user-url" className={styles.username}>Дмитрий Гришин</a>
                     </div>
-                    <span className={styles.createdAt}>4 часа назад</span>
+                    <span className={styles.createdAt}><span className={styles.publishedLabel}>Опубликовано </span>4 часа назад</span>
                 </div>
                 <h2 className={styles.title}>
                     <a href="#post-url" className={styles.postLink}>
