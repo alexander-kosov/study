@@ -10,7 +10,7 @@ export default function Card (){
                 <div className={styles.metaData}>
                     <div className={styles.userLink}>
                         <img className={styles.avatar}
-                        src="https://cdn.dribbble.com/users/42578/avatars"
+                        src="https://cdn.dribbble.com/users/133681/avatars/mini/46a5fbb029199915f49a465fb2dc4ac9.png?1589805794"
                         alt="avatar"/>
                         <a href="#user-url" className={styles.username}>Дмитрий Гришин</a>
                     </div>
@@ -23,8 +23,18 @@ export default function Card (){
                 </h2>
             </div>
             
-            <div className={styles.preview} />
-            <div className={styles.menu} />
+            <div className={styles.preview}>
+                <img className={styles.previewImg} src="https://cdn.dribbble.com/users/383235/screenshots/14963459/media/47dcedb0c5412adfbabc548064005663.png" />
+            </div>
+            <div className={styles.menu}>
+                <button className={styles.menuButton}>
+                    <svg width="5" height="20" viewBox="0 0 5 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="2.5" cy="2.5" r="2.5" fill="#D9D9D9"/>
+                        <circle cx="2.5" cy="10" r="2.5" fill="#D9D9D9"/>
+                        <circle cx="2.5" cy="17.5" r="2.5" fill="#D9D9D9"/>
+                    </svg>
+                </button>
+            </div>
             <div className={styles.controls} />
         </li>
     );
