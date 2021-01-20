@@ -37,7 +37,10 @@
         }
     }
     .controls {
-
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        padding: 15px 20px;
     }
 //--------------------------------------
     .preview {
@@ -101,6 +104,18 @@
         .down {
            // transform: rotate(180deg);
         }
+    }
+    .commentsButton {
+        display: flex;
+        align-items: normal;
+        & *{
+            color: var(--greyC4);
+        }
+    }
+    .commentsNumber {
+        padding: 0 0 0 6px;
+        font-size: 12px;
+        line-height: 14px;
     }
 
 }
