@@ -149,6 +149,19 @@
  
 @media all and (min-width: 1024px) {
     .card {
+       // flex-direction: column;
+        .textContent {
+            order: 1;
+        }
+        .preview {
+            order: 0;
+            flex: 0 0 190px;
+            margin: 0 38px 0 40px;
+        }
+        .controls {
+            order: 2;
+        }
+
         .publishedLabel {
             display: inline;
         }
