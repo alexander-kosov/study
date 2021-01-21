@@ -205,7 +205,7 @@
         &:hover, &:focus-within {
             outline: 1px solid var(--greyD9);
         }
-        
+
         .textContent {
             flex-basis: 672px;
         }
@@ -228,6 +228,15 @@
         }
         .karmaCounter > button.down:hover > svg > path {
             fill: var(--orange);
+        }
+
+
+        .username {
+            position: relative;
+            z-index: 1;
+        }
+        &:hover h2 a, &:focus-within h2 a {
+            color: var(--orange);
         }
     }  
 }
