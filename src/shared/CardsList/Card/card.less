@@ -137,15 +137,6 @@
     }
 
 }
-
-@media all and (min-width: 1540px) {
-    .card {
-        padding: 0 60px;
-    }  
-    .textContent {
-        flex-basis: 672px;
-    }
-}
  
 @media all and (min-width: 1024px) {
     .card {
@@ -155,18 +146,22 @@
             flex: 1 1;
             padding: 22px 120px 13px 0;
            // padding: 0px 120px 13px 262px;
+           align-content: start;
         }
         .metaData {
             height: 20px;
             order: 1;
+            font-size: 14px;
+            line-height: 20px;
         }
         .title {
             order: 0;
-            padding: 0;
+            padding: 0 0 10px 0 ;
+            font-size: 20px;
         }
         .menu {
             position: absolute;
-            top: 64px;
+            top: 56px;
             right: 70px;    
         }
         .preview {
@@ -177,6 +172,9 @@
         .controls {
             order: 2;
             padding: 0 120px 0 262px;
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
         }
 
         .publishedLabel {
@@ -184,12 +182,30 @@
         }
         .karmaCounter {
             position: absolute;
-            top: 60px;
+            // top: 60px;
+            bottom: 42px;
             right: 20px;
             display: flex;
             flex-direction: column;
         }
     }
+}
+
+
+@media all and (min-width: 1540px) {
+    .card {
+        padding: 0 60px;
+
+        .textContent {
+            flex-basis: 672px;
+        }
+        .controls {
+            width: calc(100% - 120px);
+        }
+        .menu {
+            right: 130px;
+        }
+    }  
 }
 
 // 22:15
