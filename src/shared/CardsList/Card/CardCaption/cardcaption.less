@@ -1,9 +1,100 @@
 .cardcaption {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 22px 20px 13px;
+    & > * {
+        flex: 1 1 100%;
+    }
 
+    .avatar {
+        border-radius: 20px;
+        width: 20px;
+        height: 20px;
+        margin: 0 7px 0 0;
+    }
+    .metaData {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        font-size: 10px;
+        line-height: 10px;
+    }
+    .userLink {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        height: 20px;
+        padding: 0 6px 0 0;
+    }
+    .username {
+        color: var(--orange);
+    }
+    .createdAt, .createdAt * {
+        color: var(--grey99);
+    }
+    .publishedLabel {
+        display: none;
+    }
+    .title {
+        font-size: 16px;
+        line-height: 19px;
+        font-weight: normal;
+        margin: 0;
+        padding: 7px 0 0;
+    }
+    .postLink {
+        overflow: hidden;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+    }
 }
 
 @media all and (min-width: 1024px) {
     .cardcaption {
-
+        order: 1;
+        flex: 1 1;
+       padding: 22px 20px 13px 0;
+       align-content: start;
+       
+       .metaData {
+            height: 20px;
+            order: 1;
+            font-size: 14px;
+            line-height: 20px;
+            display: flex;
+        }
+        .userLink {order: 1}
+        .createdAt {
+            order: 0;
+            margin-right: 8px;
+        }
+        .title {
+            order: 0;
+            padding: 0 0 10px 0 ;
+            font-size: 20px;
+        }
+        .publishedLabel {
+            display: inline;
+        }
     }
+}
+
+@media all and (min-width: 1540px) {
+    .cardcaption {
+        .username {
+            position: relative;
+            z-index: 1;
+        }
+    }
+}
+
+@media all and (min-width: 1540px) {
+    .cardcaption {
+        flex-basis: 672px;
+  
+        .userLink:hover a {
+            text-decoration: underline;
+        }
+    }  
 }
