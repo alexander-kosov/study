@@ -3,6 +3,15 @@ import React from 'react';
 
 export function MyHooks({title, id}: {title: string, id?:string}) {
 
+    //MEMO:
+    const items = 100;
+    const multiplier = 3;
+    const result = React.useMemo(
+        ()=>calculate(items, multiplier),
+        [items, multiplier]
+    );
+    // /memo
+
     React.useEffect(()=>{
         console.log('1)componentDidMount');
         console.log('1)componentWillUpdate');
@@ -27,7 +36,7 @@ export function MyHooks({title, id}: {title: string, id?:string}) {
     },[isMounted]);
 
     return (
-        <div>{title} {id}</div>
+        <div>{title} {id} ({result})</div>
     )
 }
 
@@ -40,3 +49,8 @@ export function useIsMounted () {
     },[]);
     return [isMounted]
 }
+
+ //for Memo
+ function calculate(items: number, multiplier: number) {
+     return new Array(items).fill(1).reduce((a, v) => a * multiplier);
+ };
