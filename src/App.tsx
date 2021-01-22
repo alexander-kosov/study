@@ -6,17 +6,27 @@ import Header from './shared/Header';
 import Content from './shared/Content';
 import CardsList from './shared/CardsList';
 
+import { MyHooks } from './HooksExample';
+import {getValue} from '../utils/react/pickFromSyntheticEvent';
 
 function AppComponent(){
+    const [isVisible, setIsVisible] = React.useState(false);
+    const [title, setTitle] = React.useState('');
+
 
     return (
         <Layout>
            <Header />
             <Content>
                 <CardsList />
+                {/* //--------------------------------- */}
+                <button onClick={()=>setIsVisible(!isVisible)}>Change me!</button>
+                <input type="text" onChange={getValue(setTitle)}/>
+                {isVisible && <MyHooks title={title} id='11' />}
+                {/* //--------------------------------- */}
             </Content>
         </Layout>
     );
 }
 
-export const App = hot(AppComponent);
+export const App = hot(()=><AppComponent/>);

@@ -63,7 +63,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "540090f4c1d9eb9449fc";
+/******/ 	var hotCurrentHash = "a021019386b688645d20";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1525,7 +1525,19 @@ eval("\r\nmodule.exports = function (module) {\r\n    if (!module.webpackPolyfil
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.App = void 0;\r\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\r\nvar root_1 = __webpack_require__(/*! react-hot-loader/root */ \"./node_modules/react-hot-loader/root.js\");\r\nvar Layout_1 = __importDefault(__webpack_require__(/*! ./shared/Layout */ \"./src/shared/Layout/index.ts\"));\r\n__webpack_require__(/*! ./main.global.css */ \"./src/main.global.css\");\r\nvar Header_1 = __importDefault(__webpack_require__(/*! ./shared/Header */ \"./src/shared/Header/index.ts\"));\r\nvar Content_1 = __importDefault(__webpack_require__(/*! ./shared/Content */ \"./src/shared/Content/index.ts\"));\r\nvar CardsList_1 = __importDefault(__webpack_require__(/*! ./shared/CardsList */ \"./src/shared/CardsList/index.ts\"));\r\nfunction AppComponent() {\r\n    return (react_1.default.createElement(Layout_1.default, null,\r\n        react_1.default.createElement(Header_1.default, null),\r\n        react_1.default.createElement(Content_1.default, null,\r\n            react_1.default.createElement(CardsList_1.default, null))));\r\n}\r\nexports.App = root_1.hot(AppComponent);\r\n\n\n//# sourceURL=webpack:///./src/App.tsx?");
+eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.App = void 0;\r\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\r\nvar root_1 = __webpack_require__(/*! react-hot-loader/root */ \"./node_modules/react-hot-loader/root.js\");\r\nvar Layout_1 = __importDefault(__webpack_require__(/*! ./shared/Layout */ \"./src/shared/Layout/index.ts\"));\r\n__webpack_require__(/*! ./main.global.css */ \"./src/main.global.css\");\r\nvar Header_1 = __importDefault(__webpack_require__(/*! ./shared/Header */ \"./src/shared/Header/index.ts\"));\r\nvar Content_1 = __importDefault(__webpack_require__(/*! ./shared/Content */ \"./src/shared/Content/index.ts\"));\r\nvar CardsList_1 = __importDefault(__webpack_require__(/*! ./shared/CardsList */ \"./src/shared/CardsList/index.ts\"));\r\nvar HooksExample_1 = __webpack_require__(/*! ./HooksExample */ \"./src/HooksExample.tsx\");\r\nvar pickFromSyntheticEvent_1 = __webpack_require__(/*! ../utils/react/pickFromSyntheticEvent */ \"./utils/react/pickFromSyntheticEvent.tsx\");\r\nfunction AppComponent() {\r\n    var _a = react_1.default.useState(false), isVisible = _a[0], setIsVisible = _a[1];\r\n    var _b = react_1.default.useState(''), title = _b[0], setTitle = _b[1];\r\n    return (react_1.default.createElement(Layout_1.default, null,\r\n        react_1.default.createElement(Header_1.default, null),\r\n        react_1.default.createElement(Content_1.default, null,\r\n            react_1.default.createElement(CardsList_1.default, null),\r\n            react_1.default.createElement(\"button\", { onClick: function () { return setIsVisible(!isVisible); } }, \"Change me!\"),\r\n            react_1.default.createElement(\"input\", { type: \"text\", onChange: pickFromSyntheticEvent_1.getValue(setTitle) }),\r\n            isVisible && react_1.default.createElement(HooksExample_1.MyHooks, { title: title, id: '11' }))));\r\n}\r\nexports.App = root_1.hot(function () { return react_1.default.createElement(AppComponent, null); });\r\n\n\n//# sourceURL=webpack:///./src/App.tsx?");
+
+/***/ }),
+
+/***/ "./src/HooksExample.tsx":
+/*!******************************!*\
+  !*** ./src/HooksExample.tsx ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.MyHooks = void 0;\r\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\r\nfunction MyHooks(_a) {\r\n    var title = _a.title, id = _a.id;\r\n    react_1.default.useEffect(function () {\r\n        console.log('componentDidMount');\r\n        console.log('componentWillUpdate');\r\n    });\r\n    react_1.default.useEffect(function () {\r\n        console.log('componentDidMount');\r\n        return function () {\r\n            console.log('componentWillUnmount');\r\n        };\r\n    }, []);\r\n    react_1.default.useEffect(function () {\r\n        console.log('componentWillRecieveProps', title);\r\n    }, [title]);\r\n    return (react_1.default.createElement(\"div\", null,\r\n        title,\r\n        \" \",\r\n        id));\r\n}\r\nexports.MyHooks = MyHooks;\r\n\n\n//# sourceURL=webpack:///./src/HooksExample.tsx?");
 
 /***/ }),
 
@@ -1982,6 +1994,18 @@ eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod)
 
 "use strict";
 eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar Layout_1 = __importDefault(__webpack_require__(/*! ./Layout */ \"./src/shared/Layout/Layout.tsx\"));\r\nexports.default = Layout_1.default;\r\n\n\n//# sourceURL=webpack:///./src/shared/Layout/index.ts?");
+
+/***/ }),
+
+/***/ "./utils/react/pickFromSyntheticEvent.tsx":
+/*!************************************************!*\
+  !*** ./utils/react/pickFromSyntheticEvent.tsx ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.getChecked = exports.getValue = exports.pickFromSyntheticEvent = void 0;\r\nfunction pickFromSyntheticEvent() {\r\n    return function (key) {\r\n        return function (fn) {\r\n            return function (e) {\r\n                return fn(e.currentTarget[key]);\r\n            };\r\n        };\r\n    };\r\n}\r\nexports.pickFromSyntheticEvent = pickFromSyntheticEvent;\r\n;\r\nexports.getValue = pickFromSyntheticEvent()('value');\r\nexports.getChecked = pickFromSyntheticEvent()('checked');\r\n\n\n//# sourceURL=webpack:///./utils/react/pickFromSyntheticEvent.tsx?");
 
 /***/ }),
 
