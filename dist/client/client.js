@@ -63,7 +63,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "a021019386b688645d20";
+/******/ 	var hotCurrentHash = "1cd5d1e77c2e7dc830e8";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1537,7 +1537,7 @@ eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod)
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.MyHooks = void 0;\r\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\r\nfunction MyHooks(_a) {\r\n    var title = _a.title, id = _a.id;\r\n    react_1.default.useEffect(function () {\r\n        console.log('componentDidMount');\r\n        console.log('componentWillUpdate');\r\n    });\r\n    react_1.default.useEffect(function () {\r\n        console.log('componentDidMount');\r\n        return function () {\r\n            console.log('componentWillUnmount');\r\n        };\r\n    }, []);\r\n    react_1.default.useEffect(function () {\r\n        console.log('componentWillRecieveProps', title);\r\n    }, [title]);\r\n    return (react_1.default.createElement(\"div\", null,\r\n        title,\r\n        \" \",\r\n        id));\r\n}\r\nexports.MyHooks = MyHooks;\r\n\n\n//# sourceURL=webpack:///./src/HooksExample.tsx?");
+eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.useIsMounted = exports.MyHooks = void 0;\r\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\r\nfunction MyHooks(_a) {\r\n    var title = _a.title, id = _a.id;\r\n    react_1.default.useEffect(function () {\r\n        console.log('1)componentDidMount');\r\n        console.log('1)componentWillUpdate');\r\n    });\r\n    react_1.default.useEffect(function () {\r\n        console.log('2)componentDidMount');\r\n        return function () {\r\n            console.log('2)componentWillUnmount');\r\n        };\r\n    }, []);\r\n    react_1.default.useEffect(function () {\r\n        console.log('3)componentWillRecieveProps', title);\r\n    }, [title]);\r\n    //-------------------\r\n    var isMounted = useIsMounted()[0];\r\n    react_1.default.useEffect(function () {\r\n        console.log('isMounted:', isMounted);\r\n    }, [isMounted]);\r\n    return (react_1.default.createElement(\"div\", null,\r\n        title,\r\n        \" \",\r\n        id));\r\n}\r\nexports.MyHooks = MyHooks;\r\nfunction useIsMounted() {\r\n    var _a = react_1.default.useState(false), isMounted = _a[0], setIsMounted = _a[1];\r\n    react_1.default.useEffect(function () {\r\n        setIsMounted(true);\r\n    }, []);\r\n    return [isMounted];\r\n}\r\nexports.useIsMounted = useIsMounted;\r\n\n\n//# sourceURL=webpack:///./src/HooksExample.tsx?");
 
 /***/ }),
 
