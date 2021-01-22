@@ -130,7 +130,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _nod
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.indexTemplate = void 0;\r\nvar indexTemplate = function (content) {\r\n    return \"<!DOCTYPE html>\\n<html>\\n\\t<head>\\n\\t\\t<meta charset=\\\"UTF-8\\\">\\n\\t\\t<title>Reddit</title>\\n\\t\\t<script src=\\\"/static/client.js\\\" type=\\\"application/javascript\\\"></script>\\n\\t</head>\\n\\t<body>\\n\\t\\t<div id=\\\"react-root\\\">\" + content + \"</div>\\n\\t</body>\\n</html>\\n\\t\";\r\n};\r\nexports.indexTemplate = indexTemplate;\r\n\n\n//# sourceURL=webpack:///./src/server/indexTemplate.js?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.indexTemplate = void 0;\r\nvar indexTemplate = function (content) {\r\n    return \"<!DOCTYPE html>\\n<html>\\n\\t<head>\\n\\t\\t<meta charset=\\\"UTF-8\\\">\\n\\t\\t<meta name=\\\"viewport\\\" content=\\\"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no\\\"/>\\n\\t\\t<meta http-equiv=\\\"X-UA-Compatible\\\" content=\\\"IE=edge\\\"/>\\n\\t\\t<meta name=\\\"HandheldFriendly\\\" content=\\\"true\\\"/>\\n\\t\\t<title>Reddit</title>\\n\\t\\t<script src=\\\"/static/client.js\\\" type=\\\"application/javascript\\\"></script>\\n\\t</head>\\n\\t<body>\\n\\t\\t<div id=\\\"react-root\\\">\" + content + \"</div>\\n\\t</body>\\n</html>\\n\\t\";\r\n};\r\nexports.indexTemplate = indexTemplate;\r\n\n\n//# sourceURL=webpack:///./src/server/indexTemplate.js?");
 
 /***/ }),
 
