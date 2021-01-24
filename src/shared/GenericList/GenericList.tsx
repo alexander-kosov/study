@@ -13,7 +13,7 @@ export function MyList({list}: IMyListProps) {
     return (
         <ul>
             {list.map((item:IItem,index: number)=>(
-                <li key={item.id}>{item.value}</li>
+                <li key={item.id}>{item.value} ({item.id})</li>
             ))}
         </ul>
     )

@@ -8,10 +8,10 @@ import CardsList from './shared/CardsList';
 
 import { MyHooks, useIsMounted } from './HooksExample';
 import {getValue} from '../utils/react/pickFromSyntheticEvent';
-import { generateRandomString, assignId, generateId} from '../utils/react/generateRandomIndex';
+import { generateRandomString, generateId} from '../utils/react/generateRandomIndex';
 import {MyList} from './shared/GenericList/GenericList';
 
-import { nanoid } from 'nanoid';
+//import { nanoid } from 'nanoid';
 
 
 /* выносится ВНЕ AppComponent, чтобы не перегенерировалась каждый раз */
@@ -23,11 +23,8 @@ const LIST = [
     {value: 'other not some'}
 //].map((item: {value: string})=>({...item, id: generateRandomString()}));
 //].map(assignId);
-//].map(generateId);
-].map((item:{value:string})=> ({...item, id:nanoid()}));
-
-
-
+].map(generateId);
+//].map((item:{value:string})=> ({...item, id:nanoid()}));
 
 function AppComponent(){
    // const [isVisible, setIsVisible] = React.useState(false);
