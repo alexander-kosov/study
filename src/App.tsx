@@ -11,6 +11,7 @@ import {getValue} from '../utils/react/pickFromSyntheticEvent';
 import { generateRandomString, generateId} from '../utils/react/generateRandomIndex';
 import {MyList} from './shared/GenericList/GenericList';
 
+import {merge} from '../utils/js/merge';
 //import { nanoid } from 'nanoid';
 
 
@@ -31,13 +32,20 @@ function AppComponent(){
     const [title, setTitle] = React.useState('');
     const [isVisible] = useIsMounted();
 
+
+    const handleItemClick = (id: string) => {
+        console.log(id);
+    }
+
+
     return (
         <Layout>
            <Header />
             <Content>
                 <CardsList />
                 {/* //--------------------------------- */}
-                <MyList list={LIST} onClick={console.log} />
+                <MyList list={LIST.map(merge({onClick:handleItemClick}))} />
+                {/* <MyList list={LIST} onClick={console.log} /> */}
                 {/* <MyList list={LIST} onClick={(id)=>console.log(id)} /> */}
                 <hr />
                 {/* <button onClick={()=>setIsVisible(!isVisible)}>Change me!</button> */}
