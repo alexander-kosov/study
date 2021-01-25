@@ -12,6 +12,7 @@ import { generateRandomString, generateId} from '../utils/react/generateRandomIn
 import {MyList, GenericList} from './shared/GenericList/GenericList';
 
 import {merge} from '../utils/js/merge';
+import Dropdown from './shared/Dropdown';
 //import { nanoid } from 'nanoid';
 
 
@@ -46,6 +47,10 @@ function AppComponent(){
            <Header />
             <Content>
                 <CardsList />
+                <hr />
+                <Dropdown button={<button>Open|close</button>}>
+                    <GenericList list={list.map(merge({onClick:handleItemClick}))} />
+                </Dropdown>
                 {/* //--------------------------------- */}
                 <button onClick={handleAdd} >Add element to list</button>
                 <GenericList list={list.map(merge({onClick:handleItemClick}))} />
