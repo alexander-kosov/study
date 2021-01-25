@@ -37,7 +37,8 @@ function AppComponent(){
             <Content>
                 <CardsList />
                 {/* //--------------------------------- */}
-                <MyList list={LIST} />
+                <MyList list={LIST} onClick={console.log} />
+                {/* <MyList list={LIST} onClick={(id)=>console.log(id)} /> */}
                 <hr />
                 {/* <button onClick={()=>setIsVisible(!isVisible)}>Change me!</button> */}
                 <input type="text" onChange={getValue(setTitle)}/>

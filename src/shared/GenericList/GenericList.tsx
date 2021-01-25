@@ -6,14 +6,15 @@ interface IItem {
 }
 
 interface IMyListProps {
-    list: IItem[]
+    list: IItem[];
+    onClick: (id: string)=> void;
 }
 
-export function MyList({list}: IMyListProps) {
+export function MyList({list, onClick}: IMyListProps) {
     return (
         <ul>
-            {list.map((item:IItem,index: number)=>(
-                <li key={item.id}>{item.value} ({item.id})</li>
+            {list.map((item:IItem)=>(
+                <li onClick={()=>onClick(item.id)} key={item.id}>{item.value} ({item.id})</li>
             ))}
         </ul>
     )
