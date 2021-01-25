@@ -4,14 +4,29 @@ import styles from './dropdown.less';
 interface IDropdownProps {
     button: React.ReactNode;
     children: React.ReactNode;
+    isOpen?: boolean;
+    onOpen?:() => void;
+    onClose?: () => void;
 };
 
-export default function Dropdown ({button, children}: IDropdownProps){
-    const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
+const NOOP = () => {}//чтобы onOpen и onClose срабатывали всегда, чтобы TS не выдавал ошибку в случае отсутствия этих функций
+
+export default function Dropdown ({button, children, isOpen, onClose=NOOP, onOpen=NOOP}: IDropdownProps){
+    const [isDropdownOpen, setIsDropdownOpen] = React.useState(isOpen);
+
+    React.useEffect(() => setIsDropdownOpen(isOpen), [isOpen]);
+    React.useEffect(() => isDropdownOpen? onOpen() : onClose() , [isDropdownOpen]);
+
+    const handleOpen = () => {
+        if(isOpen === undefined){
+            // если isOpen не передается, хотим, чтобы список работал автоматически
+            setIsDropdownOpen(!isDropdownOpen);
+        }
+    };
 
     return (
         <div className={styles.container}>
-            <div onClick={()=> setIsDropdownOpen(!isDropdownOpen)}>
+            <div onClick={handleOpen}>
                 {button}
             </div>
             {isDropdownOpen && (

@@ -48,7 +48,11 @@ function AppComponent(){
             <Content>
                 <CardsList />
                 <hr />
-                <Dropdown button={<button>Open|close</button>}>
+                <Dropdown
+                    onOpen={()=>console.log('opened')}
+                    onClose={()=>console.log('closed')}
+                    isOpen 
+                    button={<button>Open|close</button>}>
                     <GenericList list={list.map(merge({onClick:handleItemClick}))} />
                 </Dropdown>
                 {/* //--------------------------------- */}
