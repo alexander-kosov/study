@@ -37,6 +37,9 @@ function AppComponent(){
         setList(list.filter((item)=>item.id!==id))
     }
 
+    const handleAdd = () => {
+        setList(list.concat(generateId({value: generateRandomString() })))
+    };
 
     return (
         <Layout>
@@ -44,6 +47,7 @@ function AppComponent(){
             <Content>
                 <CardsList />
                 {/* //--------------------------------- */}
+                <button onClick={handleAdd} >Add element to list</button>
                 <MyList list={list.map(merge({onClick:handleItemClick}))} />
                 {/* <MyList list={LIST} onClick={console.log} /> */}
                 {/* <MyList list={LIST} onClick={(id)=>console.log(id)} /> */}
