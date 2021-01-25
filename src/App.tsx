@@ -32,9 +32,9 @@ function AppComponent(){
     const [title, setTitle] = React.useState('');
     const [isVisible] = useIsMounted();
 
-
+    const [list, setList] = React.useState(LIST);
     const handleItemClick = (id: string) => {
-        console.log(id);
+        setList(list.filter((item)=>item.id!==id))
     }
 
 
@@ -44,7 +44,7 @@ function AppComponent(){
             <Content>
                 <CardsList />
                 {/* //--------------------------------- */}
-                <MyList list={LIST.map(merge({onClick:handleItemClick}))} />
+                <MyList list={list.map(merge({onClick:handleItemClick}))} />
                 {/* <MyList list={LIST} onClick={console.log} /> */}
                 {/* <MyList list={LIST} onClick={(id)=>console.log(id)} /> */}
                 <hr />
