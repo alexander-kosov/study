@@ -9,7 +9,7 @@ import CardsList from './shared/CardsList';
 import { MyHooks, useIsMounted } from './HooksExample';
 import {getValue} from '../utils/react/pickFromSyntheticEvent';
 import { generateRandomString, generateId} from '../utils/react/generateRandomIndex';
-import {MyList} from './shared/GenericList/GenericList';
+import {MyList, GenericList} from './shared/GenericList/GenericList';
 
 import {merge} from '../utils/js/merge';
 //import { nanoid } from 'nanoid';
@@ -17,11 +17,11 @@ import {merge} from '../utils/js/merge';
 
 /* выносится ВНЕ AppComponent, чтобы не перегенерировалась каждый раз */
 const LIST = [
-    {value: 'some'},
-    {value: 'other some'},
-    {value: 'one more some'},
-    {value: 'not some'},
-    {value: 'other not some'}
+    {text: 'some'},
+    {text: 'other some'},
+    {text: 'one more some'},
+    {text: 'not some'},
+    {text: 'other not some'}
 //].map((item: {value: string})=>({...item, id: generateRandomString()}));
 //].map(assignId);
 ].map(generateId);
@@ -38,7 +38,7 @@ function AppComponent(){
     }
 
     const handleAdd = () => {
-        setList(list.concat(generateId({value: generateRandomString() })))
+        setList(list.concat(generateId({text: generateRandomString() })))
     };
 
     return (
@@ -48,7 +48,8 @@ function AppComponent(){
                 <CardsList />
                 {/* //--------------------------------- */}
                 <button onClick={handleAdd} >Add element to list</button>
-                <MyList list={list.map(merge({onClick:handleItemClick}))} />
+                <GenericList list={list.map(merge({onClick:handleItemClick}))} />
+                {/* <MyList list={list.map(merge({onClick:handleItemClick}))} /> */}
                 {/* <MyList list={LIST} onClick={console.log} /> */}
                 {/* <MyList list={LIST} onClick={(id)=>console.log(id)} /> */}
                 <hr />
