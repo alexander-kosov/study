@@ -50,10 +50,11 @@ const filterWithId = (id: number) => pipe(pick('id'), isEqual(id), cond);
 const filteredComments3 = comments.filter(filterWithId(22));
 //-----------------
 
+const createFilterBy = (prop: string) => (id: number) => pipe(pick(prop), isEqual(id), cond);
 
-
-
-
+const filterWithId = createFilterBy('id');
+const filterWithValue = createFilterBy('value');
+const filteredComments = comments.filter(filterWithId(22));
 
 
 
