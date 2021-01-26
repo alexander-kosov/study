@@ -60,5 +60,5 @@ const filteredComments = comments.filter(filterWithId(22));
 //-----------------------------------------------------
 const createBy = <O extends object>(prop: string) => (V: any) => pipe(pick(prop), isEqual(V), cond);
 const filterWithId1 = createFilterBy('id');
-const filterWithValue1 = createFilterBy('text');
+const filterWithValue1 = createBy('text');
 const filteredComments_ = comments.filter(filterWithValue1('text one'));
