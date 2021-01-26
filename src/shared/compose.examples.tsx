@@ -38,7 +38,7 @@ function isEqual<T>(left: T) {
 
 const comments = [{id: 22, text: 'text one'}, {id: 33, text: 'text two'}];
 
-const filteredComments = comments.filter(({id}) => id !== 22);
+const filteredComments1 = comments.filter(({id}) => id !== 22);
 //или можно вот так:
 const filteredComments2 = comments.filter(pipe(pick('id'), isEqual(22), cond));
 
@@ -46,8 +46,8 @@ function cond(b: boolean){
     return !b
 }
 
-const filterWithId = (id: number) => pipe(pick('id'), isEqual(id), cond);
-const filteredComments3 = comments.filter(filterWithId(22));
+const filterWithId_ = (id: number) => pipe(pick('id'), isEqual(id), cond);
+const filteredComments3 = comments.filter(filterWithId_(22));
 //-----------------
 
 const createFilterBy = (prop: string) => (id: number) => pipe(pick(prop), isEqual(id), cond);
