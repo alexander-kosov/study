@@ -47,25 +47,6 @@ function AppComponent(){
            <Header />
             <Content>
                 <CardsList />
-                <hr />
-                <Dropdown
-                    onOpen={()=>console.log('opened')}
-                    onClose={()=>console.log('closed')}
-                    isOpen 
-                    button={<button>Open|close</button>}>
-                    <GenericList list={list.map(merge({onClick:handleItemClick}))} />
-                </Dropdown>
-                {/* //--------------------------------- */}
-                <button onClick={handleAdd} >Add element to list</button>
-                <GenericList list={list.map(merge({onClick:handleItemClick}))} />
-                {/* <MyList list={list.map(merge({onClick:handleItemClick}))} /> */}
-                {/* <MyList list={LIST} onClick={console.log} /> */}
-                {/* <MyList list={LIST} onClick={(id)=>console.log(id)} /> */}
-                <hr />
-                {/* <button onClick={()=>setIsVisible(!isVisible)}>Change me!</button> */}
-                <input type="text" onChange={getValue(setTitle)}/>
-                {isVisible && <MyHooks title={title} id='11' />}
-                {/* //--------------------------------- */}
             </Content>
         </Layout>
     );
