@@ -23,7 +23,7 @@ export default function CardMenu (){
     }
 
     const handleButtonClick = () => {
-        setMenuOpen(!menuOpen)
+        //setMenuOpen(!menuOpen)
     };
 
 
@@ -43,7 +43,7 @@ export default function CardMenu (){
             <Dropdown
                 onOpen={()=>console.log('opened')}
                 onClose={()=>console.log('closed')}
-                isOpen={menuOpen} 
+                // isOpen={menuOpen} 
                 button={button}>
 
 <GenericList list={list.map(merge({onClick:handleItemClick}))} />
