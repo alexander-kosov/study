@@ -20,6 +20,7 @@ function compose<U>(...fns: Function[]) {
         fns.reduceRight((previousValue, fn) => fn(previousValue),initialValue);
 }
 
+//функцию Pipe лучше брать с ramdajs.com, там она правильно типизирована
 function pipe<U>(...fns: Function[]) {
     return <E, >(initialValue: any):U =>
         fns.reduce((previousValue, fn) => fn(previousValue),initialValue);
@@ -53,9 +54,11 @@ const filteredComments3 = comments.filter(filterWithId_(22));
 const createFilterBy = (prop: string) => (id: number) => pipe(pick(prop), isEqual(id), cond);
 
 const filterWithId = createFilterBy('id');
-const filterWithValue = createFilterBy('value');
+const filterWithValue = createFilterBy('text');
 const filteredComments = comments.filter(filterWithId(22));
 
-
-
-
+//-----------------------------------------------------
+const createBy = <O extends object>(prop: string) => (V: any) => pipe(pick(prop), isEqual(V), cond);
+const filterWithId1 = createFilterBy('id');
+const filterWithValue1 = createFilterBy('text');
+const filteredComments_ = comments.filter(filterWithValue1('text one'));
