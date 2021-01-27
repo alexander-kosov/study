@@ -1,9 +1,10 @@
 import React from 'react';
 import styles from './text.less';
+import classNames from 'classnames';
 
 type TSizes = 28 | 20 | 16 | 14 | 12 | 10;
 
-export enum EColors {
+export enum EColor {
     black  =  'black',
     white  =  'white',
     orange =  'orange',
@@ -23,13 +24,22 @@ interface ITextProps {
     mobileSize?: TSizes;
     desktopSize?: TSizes;
     tabletSize?: TSizes;
-    color?: EColors;
+    color?: EColor;
 }
 
-export default function Text ({As='span', children}: ITextProps){
+export default function Text (props: ITextProps){
+    const {As='span', color = EColor.black, children, size, mobileSize, desktopSize, tabletSize} = props;
+
+    const classes = classNames(
+        styles[`s${size}`],
+        { [styles[`m${mobileSize}`]]: mobileSize },
+        { [styles[`t${tabletSize}`]]: tabletSize },
+        { [styles[`d${desktopSize}`]]: desktopSize },
+        styles[color]
+    );
 
     return (
-        <As>
+        <As className={classes}>
             {children}
         </As>
     );

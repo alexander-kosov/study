@@ -5,6 +5,7 @@ import {generateId} from '../../../../utils/react/generateRandomIndex';
 import {GenericList} from '../../../../shared/GenericList/GenericList';
 import {merge} from '../../../../utils/js/merge';
 import { MenuIcon } from '../../../Icons';
+import Text, {EColor} from '../../../Text/Text';
 
 const LIST = [
     {text: 'Скрыть', icon: 'block'},
@@ -42,10 +43,14 @@ export default function CardMenu (){
                 button={button}>
                 
                 <div className={styles.dropdown}>
-                    <GenericList list={list.map(merge({onClick:handleItemClick}))} />
-                
+                    {/* <GenericList list={list.map(merge({onClick:handleItemClick}))} /> */}
+
+
+
                     <button className={styles.closeButton}>
+                    <Text mobileSize={12} size={14} color={EColor.grey66}>
                         Закрыть
+                        </Text>
                     </button>
                 </div>
                 
