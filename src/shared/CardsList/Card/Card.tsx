@@ -3,7 +3,7 @@ import styles from './card.less';
 import CardCaption from './CardCaption';
 import CardControls from './CardControls';
 import CardImage from './CardImage';
-import CardMenu from './CardMenu';
+import Menu from './Menu';
 
 export default function Card (){
 
@@ -11,7 +11,7 @@ export default function Card (){
         <li className={styles.card}>
             <CardCaption />
             <CardImage />
-            <CardMenu />
+            <Menu />
             <CardControls />
         </li>
     );
