@@ -43,6 +43,10 @@ export default function CardMenu (){
                 
                 <div className={styles.dropdown}>
                     <GenericList list={list.map(merge({onClick:handleItemClick}))} />
+                
+                    <button className={styles.closeButton}>
+                        Закрыть
+                    </button>
                 </div>
                 
             </Dropdown>
