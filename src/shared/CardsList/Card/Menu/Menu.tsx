@@ -46,8 +46,8 @@ export default function CardMenu (){
                     {/* <GenericList list={list.map(merge({onClick:handleItemClick}))} /> */}
 
                     <button className={styles.closeButton}>
-                    <Text As="div" mobileSize={12} size={14} color={EColor.grey66}>
-                        Закрыть
+                        <Text As="div" mobileSize={12} size={14} color={EColor.grey66}>
+                            Закрыть
                         </Text>
                     </button>
                 </div>
