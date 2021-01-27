@@ -21,6 +21,7 @@ interface ITextProps {
     As?: 'span'| 'h1'| 'h2'| 'h3'| 'h4'| 'p'| 'div';
     children?: React.ReactNode;
     size: TSizes;
+    bold?: boolean,
     mobileSize?: TSizes;
     desktopSize?: TSizes;
     tabletSize?: TSizes;
@@ -28,10 +29,20 @@ interface ITextProps {
 }
 
 export default function Text (props: ITextProps){
-    const {As='span', color = EColor.black, children, size, mobileSize, desktopSize, tabletSize} = props;
+    const {
+        As='span', 
+        color = EColor.black, 
+        bold = false,
+        children, 
+        size, 
+        mobileSize, 
+        desktopSize, 
+        tabletSize
+    } = props;
 
     const classes = classNames(
         styles[`s${size}`],
+        {[styles.bold]: bold},
         { [styles[`m${mobileSize}`]]: mobileSize },
         { [styles[`t${tabletSize}`]]: tabletSize },
         { [styles[`d${desktopSize}`]]: desktopSize },
