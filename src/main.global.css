@@ -6,7 +6,11 @@
     --white:    #ffffff;
     --orange:   #cc6633;
     --green:    #a4cc33;
+
+    --whiteLightness: 100%;
+
     --greyF3:   #f3f3f3;
+    --greyEC:   hsl(0, 0%, calc(var(--whiteLightness) - 7%));
     --greyF4:   #f4f4f4;
     --greyD9:   #d9d9d9;
     --greyC4:   #c4c4c4;

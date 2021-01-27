@@ -6,6 +6,7 @@ import {GenericList} from '../../../../shared/GenericList/GenericList';
 import {merge} from '../../../../utils/js/merge';
 import { MenuIcon } from '../../../Icons';
 import Text, {EColor} from '../../../Text/Text';
+import MenuItemsList from './MenuItemsList';
 
 const LIST = [
     {text: 'Скрыть', icon: 'block'},
@@ -44,7 +45,7 @@ export default function CardMenu (){
                 
                 <div className={styles.dropdown}>
                     {/* <GenericList list={list.map(merge({onClick:handleItemClick}))} /> */}
-
+                    <MenuItemsList postId='1234'/>
                     <button className={styles.closeButton}>
                         <Text As="div" mobileSize={12} size={14} color={EColor.grey66}>
                             Закрыть
