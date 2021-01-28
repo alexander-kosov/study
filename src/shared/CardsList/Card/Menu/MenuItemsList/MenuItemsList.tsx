@@ -16,7 +16,7 @@ export default function MenuItemsList ({postId}: IMenuItemsList){
             <li className={styles.menuItem} 
                 onClick={()=>console.log(postId)}>
                 <BlockIcon />
-                <Text size={12} 
+                <Text size={12} tabletSize={14} desktopSize={14} bold
                 color={EColor.grey99}>
                 Скрыть
                 </Text>
@@ -26,7 +26,7 @@ export default function MenuItemsList ({postId}: IMenuItemsList){
 
             <li className={styles.menuItem}>
                 <WarningIcon />
-                <Text size={12} color={EColor.grey99}>
+                <Text size={12} tabletSize={14} desktopSize={14} color={EColor.grey99}>
                 Пожаловаться
                 </Text>
             </li>
