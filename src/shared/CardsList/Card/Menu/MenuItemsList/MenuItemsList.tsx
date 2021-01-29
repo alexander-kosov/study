@@ -1,5 +1,6 @@
 import React from 'react';
 import {BlockIcon, WarningIcon, CommentIcon, ShareIcon, SaveIcon} from '../../../../Icons';
+import Icon from '../../../../Icon';
 import Text, {EColor} from '../../../../Text';
 //import Text, {EColor} from '../../../../Text/Text';
 import styles from './menuitemslist.less';
@@ -13,9 +14,13 @@ export default function MenuItemsList ({postId}: IMenuItemsList){
 
     return (
        <ul className={styles.menuItemsList}>
+
+        {/* <Icon name="comment" size={14} /> */}
+
             <li className={styles.menuItem} 
                 onClick={()=>console.log(postId)}>
-                <CommentIcon />
+                {/* <CommentIcon /> */}
+                <Icon name='comment' size={14} />
                 <Text size={12} tabletSize={14} desktopSize={14}
                 color={EColor.grey99}>
                 Комментарии
