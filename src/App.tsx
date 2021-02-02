@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { hot } from 'react-hot-loader/root';
 import Layout from './shared/Layout';
 import './main.global.css';
@@ -29,6 +29,7 @@ const LIST = [
 //].map((item:{value:string})=> ({...item, id:nanoid()}));
 
 function AppComponent(){
+
    // const [isVisible, setIsVisible] = React.useState(false);
     const [title, setTitle] = React.useState('');
     const [isVisible] = useIsMounted();
@@ -41,6 +42,15 @@ function AppComponent(){
     const handleAdd = () => {
         setList(list.concat(generateId({text: generateRandomString() })))
     };
+
+    const [token, setToken] = useState('');
+    
+    useEffect(()=>{
+        if(window.__token__){
+            setToken(window.__token__)
+        }
+    },[]);
+        //8.1 Забираем из API данные пользователя 09:09
 
     return (
         <Layout>
