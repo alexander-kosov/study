@@ -1,18 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styles from './header.less';
 import SearchBlock from './SearchBlock';
 import SortBlock from './SortBlock';
 import ThreadTitle from './ThreadTitle';
 
-interface IHeaderProps {
-   token: string; 
-};
-
-export default function Header ({token}:IHeaderProps){
+export default function Header (){
 
     return (
         <header className={styles.header}>
-            <SearchBlock token={token}/>
+            <SearchBlock />
             <ThreadTitle />
             <SortBlock />
         </header>

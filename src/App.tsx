@@ -6,6 +6,9 @@ import Header from './shared/Header';
 import Content from './shared/Content';
 import CardsList from './shared/CardsList';
 import {useToken} from './hooks/useToken';
+
+import { tokenContext } from './shared/context/tokenContext';
+
 //---------------------------------
 import { MyHooks, useIsMounted } from './HooksExample';
 import {getValue} from '../utils/react/pickFromSyntheticEvent';
@@ -46,16 +49,20 @@ function AppComponent(){
     const handleAdd = () => {
         setList(list.concat(generateId({text: generateRandomString() })))
     };
+    //------------------------------------------------------------------------
 
     const [token] = useToken();
+    const {Provider} = tokenContext;
 
     return (
-        <Layout>
-           <Header token={token} />
-            <Content>
-                <CardsList />
-            </Content>
-        </Layout>
+        <Provider value={token}>
+            <Layout>
+            <Header />
+                <Content>
+                    <CardsList />
+                </Content>
+            </Layout>
+        </Provider>
     );
 }
 
