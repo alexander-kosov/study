@@ -1,11 +1,12 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import { hot } from 'react-hot-loader/root';
 import Layout from './shared/Layout';
 import './main.global.css';
 import Header from './shared/Header';
 import Content from './shared/Content';
 import CardsList from './shared/CardsList';
-
+import {useToken} from './hooks/useToken';
+//---------------------------------
 import { MyHooks, useIsMounted } from './HooksExample';
 import {getValue} from '../utils/react/pickFromSyntheticEvent';
 import { generateRandomString, generateId} from '../utils/react/generateRandomIndex';
@@ -14,7 +15,6 @@ import {MyList, GenericList} from './shared/GenericList/GenericList';
 import {merge} from '../utils/js/merge';
 import Dropdown from './shared/Dropdown';
 //import { nanoid } from 'nanoid';
-
 
 /* выносится ВНЕ AppComponent, чтобы не перегенерировалась каждый раз */
 const LIST = [
@@ -30,6 +30,10 @@ const LIST = [
 
 function AppComponent(){
 
+    //????????????????? хер знает, не работает, выдает ошибку
+    // const url = new URL(window.location.href);
+    // console.log(url.searchParams.get('code'));
+   
    // const [isVisible, setIsVisible] = React.useState(false);
     const [title, setTitle] = React.useState('');
     const [isVisible] = useIsMounted();
@@ -43,18 +47,11 @@ function AppComponent(){
         setList(list.concat(generateId({text: generateRandomString() })))
     };
 
-    const [token, setToken] = useState('');
-    
-    useEffect(()=>{
-        if(window.__token__){
-            setToken(window.__token__)
-        }
-    },[]);
-        //8.1 Забираем из API данные пользователя 09:09
+    const [token] = useToken();
 
     return (
         <Layout>
-           <Header />
+           <Header token={token} />
             <Content>
                 <CardsList />
             </Content>
