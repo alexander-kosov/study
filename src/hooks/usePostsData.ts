@@ -9,7 +9,7 @@ import { tokenContext } from '../shared/context/tokenContext';
 // }
 
 export function usePostsData() {
-    //const [data, setData] = useState<IPostsData>({});
+    const [data, setData] = useState([]);
 
     const token = useContext(tokenContext);
 
@@ -20,10 +20,12 @@ export function usePostsData() {
             headers:{Authorization: `bearer ${token}`}
         })
         .then((resp)=>{
-            const posts = resp.data;
-            console.log("#response=",resp);
+            // const posts = resp.data.data.children;
+            // console.log("#response=",resp.data.data.children);
+            setData(resp.data.data.children)
         })
         .catch(console.log)
     },[token]);
-    return []
+   // console.log("DATA:",data);
+    return [data]
 }

@@ -63,7 +63,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "8fa9ccf3285572f1298b";
+/******/ 	var hotCurrentHash = "56d18f05083ea16a3fcb";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1969,7 +1969,7 @@ eval("\r\nvar __createBinding = (this && this.__createBinding) || (Object.create
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.usePostsData = void 0;\r\nvar react_1 = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\nvar axios_1 = __importDefault(__webpack_require__(/*! axios */ \"./node_modules/axios/index.js\"));\r\nvar tokenContext_1 = __webpack_require__(/*! ../shared/context/tokenContext */ \"./src/shared/context/tokenContext.ts\");\r\n// interface IPostsData {\r\n//     name?: string;\r\n//     iconImg?: string;\r\n// }\r\nfunction usePostsData() {\r\n    //const [data, setData] = useState<IPostsData>({});\r\n    var token = react_1.useContext(tokenContext_1.tokenContext);\r\n    console.log(\"#token=\", token);\r\n    react_1.useEffect(function () {\r\n        if (!token)\r\n            return;\r\n        axios_1.default.get('https://oauth.reddit.com/best/', {\r\n            headers: { Authorization: \"bearer \" + token }\r\n        })\r\n            .then(function (resp) {\r\n            var posts = resp.data;\r\n            console.log(\"#response=\", resp);\r\n        })\r\n            .catch(console.log);\r\n    }, [token]);\r\n    return [];\r\n}\r\nexports.usePostsData = usePostsData;\r\n\n\n//# sourceURL=webpack:///./src/hooks/usePostsData.ts?");
+eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.usePostsData = void 0;\r\nvar react_1 = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\nvar axios_1 = __importDefault(__webpack_require__(/*! axios */ \"./node_modules/axios/index.js\"));\r\nvar tokenContext_1 = __webpack_require__(/*! ../shared/context/tokenContext */ \"./src/shared/context/tokenContext.ts\");\r\n// interface IPostsData {\r\n//     name?: string;\r\n//     iconImg?: string;\r\n// }\r\nfunction usePostsData() {\r\n    var _a = react_1.useState([]), data = _a[0], setData = _a[1];\r\n    var token = react_1.useContext(tokenContext_1.tokenContext);\r\n    console.log(\"#token=\", token);\r\n    react_1.useEffect(function () {\r\n        if (!token)\r\n            return;\r\n        axios_1.default.get('https://oauth.reddit.com/best/', {\r\n            headers: { Authorization: \"bearer \" + token }\r\n        })\r\n            .then(function (resp) {\r\n            // const posts = resp.data.data.children;\r\n            // console.log(\"#response=\",resp.data.data.children);\r\n            setData(resp.data.data.children);\r\n        })\r\n            .catch(console.log);\r\n    }, [token]);\r\n    // console.log(\"DATA:\",data);\r\n    return [data];\r\n}\r\nexports.usePostsData = usePostsData;\r\n\n\n//# sourceURL=webpack:///./src/hooks/usePostsData.ts?");
 
 /***/ }),
 
