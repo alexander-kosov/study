@@ -10,8 +10,6 @@ import {useToken} from './hooks/useToken';
 import { tokenContext } from './shared/context/tokenContext';
 //import { userContext } from './shared/context/userContext';
 import { UserContextProvider } from './shared/context/userContext';
-
-import { usePostsData } from './hooks/usePostsData';
 //---------------------------------
 import { MyHooks, useIsMounted } from './HooksExample';
 import {getValue} from '../utils/react/pickFromSyntheticEvent';
@@ -35,10 +33,6 @@ const LIST = [
 //].map((item:{value:string})=> ({...item, id:nanoid()}));
 
 function AppComponent(){
-console.log('usePostsData');
-const [posts] = usePostsData();
-//console.log("posts:",posts);
-
 
     //????????????????? хер знает, не работает, выдает ошибку
     // const url = new URL(window.location.href);

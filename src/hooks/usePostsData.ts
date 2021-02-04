@@ -16,7 +16,7 @@ export function usePostsData() {
     console.log("#token=",token);
     useEffect(()=>{
        // if(!token) return;
-        axios.get('https://www.reddit.com/best/', {
+        axios.get('https://oauth.reddit.com/best/', {
             headers:{Authorization: `bearer ${token}`}
         })
         .then((resp)=>{
