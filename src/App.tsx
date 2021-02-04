@@ -10,6 +10,7 @@ import {useToken} from './hooks/useToken';
 import { tokenContext } from './shared/context/tokenContext';
 //import { userContext } from './shared/context/userContext';
 import { UserContextProvider } from './shared/context/userContext';
+import { PostsContextProvider } from './shared/context/postsContext';
 //---------------------------------
 import { MyHooks, useIsMounted } from './HooksExample';
 import {getValue} from '../utils/react/pickFromSyntheticEvent';
@@ -57,12 +58,14 @@ function AppComponent(){
     return (
         <tokenContext.Provider value={token}>
             <UserContextProvider >
+                
                 <Layout>
                     <Header />
-                    <Content>
-                        <CardsList />
+                    <Content><PostsContextProvider>
+                        <CardsList /></PostsContextProvider>
                     </Content>
                 </Layout>
+                
             </UserContextProvider >
         </tokenContext.Provider>
     );

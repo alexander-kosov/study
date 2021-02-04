@@ -26,6 +26,6 @@ export function usePostsData() {
         })
         .catch(console.log)
     },[token]);
-   // console.log("DATA:",data);
+    //console.log("DATA:",data);
     return [data]
 }
