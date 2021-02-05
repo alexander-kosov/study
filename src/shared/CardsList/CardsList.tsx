@@ -18,7 +18,6 @@ interface IPost {
 
 export default function CardsList (){
 
-    //console.log('usePostsData');
     const [posts] = usePostsData();
     console.log("posts:",posts);
 
@@ -29,7 +28,6 @@ export default function CardsList (){
 
     return (
         <ul className={styles.cardslist}>
-            {/* <Card /> */}
             {items}
         </ul>
     );
