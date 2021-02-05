@@ -4,7 +4,16 @@ import Card from './Card';
 import { usePostsData } from '../../hooks/usePostsData';
 
 interface IPost {
-    data: any
+    kind: string; 
+    data: {
+        id: string;
+        author: string;
+        created: number;
+        num_comments: number;
+        permalink: string;
+        title: string;
+        url: string;
+    }
 }
 
 export default function CardsList (){
