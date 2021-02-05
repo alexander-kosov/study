@@ -15,8 +15,13 @@ import Menu from './Menu';
 //     url: string;
 // }
 
-export default function Card (props: any){
+interface LooseObject {
+    [key: string]: any
+}
 
+
+export default function Card (props: LooseObject){
+console.log(">>>>>",props);
     return (
         <li className={styles.card}>
             <CardCaption data={props.data}/>
