@@ -5,20 +5,20 @@ import CardControls from './CardControls';
 import CardImage from './CardImage';
 import Menu from './Menu';
 
-interface IPostData {
-    id: string;
-    author: string;
-    created: number;
-    num_comments: number;
-    permalink: string;
-    title: string;
-    url: string;
-}
+// interface IPostData {
+//     id: string;
+//     author: string;
+//     created: number;
+//     num_comments: number;
+//     permalink: string;
+//     title: string;
+//     url: string;
+// }
 
-export default function Card (data: IPostData){
+export default function Card (props: any){
 
     return (
-        <li className={styles.card} key={data.id}>
+        <li className={styles.card}>
             <CardCaption />
             <CardImage />
             <Menu />

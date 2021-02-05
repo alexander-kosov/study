@@ -19,11 +19,8 @@ interface IPost {
 export default function CardsList (){
 
     const [posts] = usePostsData();
-    console.log("posts:",posts);
-
     let items = posts.map((post:IPost)=>{
-        console.log("Post:", post.data.author, post);
-        return <Card data={post.data}/>//
+        return <Card data={post.data} key={post.data.id}/>
     });
 
     return (
