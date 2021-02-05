@@ -11,7 +11,6 @@ export const postsContext = React.createContext([]);
 export function PostsContextProvider ({children}:{children: React.ReactNode}) {
     
     const [data] = usePostsData();
-    console.log("DATA:",data);
     return (
         <postsContext.Provider value={data}>
             {children}
