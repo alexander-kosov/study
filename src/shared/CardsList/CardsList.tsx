@@ -4,15 +4,7 @@ import Card from './Card';
 import { usePostsData } from '../../hooks/usePostsData';
 
 interface IPost {
-    data: {
-        id: string;
-        author: string;
-        created: number;
-        num_comments: number;
-        permalink: string;
-        title: string;
-        url: string;
-    }
+    data: any
 }
 
 export default function CardsList (){
@@ -23,7 +15,7 @@ export default function CardsList (){
 
     let items = posts.map((post:IPost)=>{
         console.log("Post:", post.data.author, post);
-        return <Card key={post.data.id} />//post={post: data}
+        return <Card data={post.data}/>//
     });
 
     return (
