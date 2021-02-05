@@ -19,8 +19,8 @@ export default function Card (props: any){
 
     return (
         <li className={styles.card}>
-            <CardCaption />
-            <CardImage />
+            <CardCaption data={props.data}/>
+            <CardImage data={props.data}/>
             <Menu />
             <CardControls />
         </li>

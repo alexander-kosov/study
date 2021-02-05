@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './cardimage.less';
 
-export default function CardImage (){
+export default function CardImage ({data}: any){
 
     return (
         <div className={styles.preview}>
-            <img className={styles.previewImg} src="https://cdn.dribbble.com/users/383235/screenshots/14963459/media/47dcedb0c5412adfbabc548064005663.png" />
+            <img className={styles.previewImg} src={data.thumbnail} />
         </div>
 
     );
