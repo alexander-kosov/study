@@ -1,7 +1,13 @@
 import React from 'react';
 import styles from './cardimage.less';
 
-export default function CardImage ({data}: any){
+interface ICardImageProps {
+    data: {
+        thumbnail: string;  
+    }
+}
+
+export default function CardImage ({data}: ICardImageProps){
 
     return (
         <div className={styles.preview}>

@@ -1,10 +1,19 @@
 import React from 'react';
 import styles from './cardcaption.less';
 
+interface ICardCaptionProps {
+    data: {
+        created_utc: number;
+        author: string;
+        url: string;
+        title: string;
+    }
+}
 
-export default function CardCaption ({data}: any){
 
-    let date = new Date(parseInt(data.created+'000'));
+export default function CardCaption ({data}: ICardCaptionProps){
+
+    let date = new Date(parseInt(data.created_utc+'000'));
     var options = {
         //era: 'long',
         year: 'numeric',
@@ -16,7 +25,6 @@ export default function CardCaption ({data}: any){
         minute: 'numeric',
         second: 'numeric'
       };
-     //console.log( "date",date.toLocaleString("ru", options)); 
       let realDate = date.toLocaleString("ru", options);
 
     return (

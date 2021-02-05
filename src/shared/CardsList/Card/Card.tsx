@@ -21,7 +21,7 @@ interface LooseObject {
 
 
 export default function Card (props: LooseObject){
-console.log(">>>>>",props);
+
     return (
         <li className={styles.card}>
             <CardCaption data={props.data}/>
