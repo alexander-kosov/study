@@ -8,11 +8,12 @@ interface IPost {
     data: {
         id: string;
         author: string;
-        created: number;
+        created_utc: number;
         num_comments: number;
         permalink: string;
         title: string;
         url: string;
+        thumbnail: string; 
     }
 }
 

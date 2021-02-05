@@ -5,22 +5,25 @@ import CardControls from './CardControls';
 import CardImage from './CardImage';
 import Menu from './Menu';
 
-// interface IPostData {
-//     id: string;
-//     author: string;
-//     created: number;
-//     num_comments: number;
-//     permalink: string;
-//     title: string;
-//     url: string;
-// }
-
-interface LooseObject {
-    [key: string]: any
+interface IPostData {
+    data: {
+        id: string;
+        author: string;
+        created_utc: number;
+        num_comments: number;
+        permalink: string;
+        title: string;
+        url: string;    
+        thumbnail: string;     
+    }
 }
 
+// interface LooseObject {
+//     [key: string]: any
+// }
 
-export default function Card (props: LooseObject){
+
+export default function Card (props: IPostData){
 
     return (
         <li className={styles.card}>
