@@ -58,14 +58,14 @@ function AppComponent(){
     return (
         <tokenContext.Provider value={token}>
             <UserContextProvider >
-                
+                <PostsContextProvider>
                 <Layout>
                     <Header />
-                    <Content><PostsContextProvider>
-                        <CardsList /></PostsContextProvider>
+                    <Content>
+                        <CardsList />
                     </Content>
                 </Layout>
-                
+                </PostsContextProvider>
             </UserContextProvider >
         </tokenContext.Provider>
     );
