@@ -30,7 +30,7 @@ export default function Card (props: IPostData){
             <CardCaption data={props.data}/>
             <CardImage data={props.data}/>
             <Menu />
-            <CardControls />
+            <CardControls data={props.data} />
         </li>
     );
 }
