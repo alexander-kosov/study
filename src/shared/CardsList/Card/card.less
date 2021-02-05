@@ -5,7 +5,7 @@
     display: flex;
     flex-flow: row wrap;
     position: relative;
-
+	
     & > * {
         flex: 1 1 100%;
     }
@@ -14,6 +14,7 @@
 @media all and (min-width: 1024px) {
     .card {
         flex-flow: row nowrap;
+		margin-bottom: 20px;
     }
 }
 
@@ -21,7 +22,7 @@
 @media all and (min-width: 1540px) {
     .card {
         padding: 0 60px;
-
+		
         &:hover, &:focus-within {
             outline: 1px solid var(--greyD9);
         }

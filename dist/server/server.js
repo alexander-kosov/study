@@ -322,7 +322,7 @@ eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod)
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\r\nvar cardimage_less_1 = __importDefault(__webpack_require__(/*! ./cardimage.less */ \"./src/shared/CardsList/Card/CardImage/cardimage.less\"));\r\nfunction CardImage(_a) {\r\n    var data = _a.data;\r\n    return (react_1.default.createElement(\"div\", { className: cardimage_less_1.default.preview },\r\n        react_1.default.createElement(\"img\", { className: cardimage_less_1.default.previewImg, src: data.thumbnail })));\r\n}\r\nexports.default = CardImage;\r\n\n\n//# sourceURL=webpack:///./src/shared/CardsList/Card/CardImage/CardImage.tsx?");
+eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\r\nvar cardimage_less_1 = __importDefault(__webpack_require__(/*! ./cardimage.less */ \"./src/shared/CardsList/Card/CardImage/cardimage.less\"));\r\nfunction CardImage(_a) {\r\n    var data = _a.data;\r\n    console.log(\"thumb:\", data.thumbnail);\r\n    if (data.thumbnail !== 'default') {\r\n        return (react_1.default.createElement(\"div\", { className: cardimage_less_1.default.preview },\r\n            react_1.default.createElement(\"img\", { className: cardimage_less_1.default.previewImg, src: data.thumbnail })));\r\n    }\r\n    else\r\n        return (react_1.default.createElement(\"div\", { className: cardimage_less_1.default.preview },\r\n            react_1.default.createElement(\"div\", { className: cardimage_less_1.default.fakePreview })));\r\n}\r\nexports.default = CardImage;\r\n\n\n//# sourceURL=webpack:///./src/shared/CardsList/Card/CardImage/CardImage.tsx?");
 
 /***/ }),
 
@@ -334,7 +334,7 @@ eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod)
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// Exports\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n\t\"preview\": \"cardimage__preview--17ZvV\",\n\t\"previewImg\": \"cardimage__previewImg--1EqvD\"\n});\n\n\n//# sourceURL=webpack:///./src/shared/CardsList/Card/CardImage/cardimage.less?");
+eval("__webpack_require__.r(__webpack_exports__);\n// Exports\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n\t\"preview\": \"cardimage__preview--17ZvV\",\n\t\"previewImg\": \"cardimage__previewImg--1EqvD\",\n\t\"fakePreview\": \"cardimage__fakePreview--Ea3QI\"\n});\n\n\n//# sourceURL=webpack:///./src/shared/CardsList/Card/CardImage/cardimage.less?");
 
 /***/ }),
 
