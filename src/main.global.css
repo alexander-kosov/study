@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+#modal_root {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
 /*not work in IE!!!*/
 :root {
     --black:    #333333;
