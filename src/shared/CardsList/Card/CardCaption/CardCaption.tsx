@@ -49,7 +49,7 @@ export default function CardCaption ({data}: ICardCaptionProps){
                 </a>
 
                 {isModalOpened && (
-                    <Post />
+                    <Post onClose={()=>{setIsModalOpened(false)}}/>
                 )}
             </h2>
         </div>

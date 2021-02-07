@@ -3,7 +3,7 @@ import styles from './cardslist.less';
 import Card from './Card';
 import { usePostsData } from '../../hooks/usePostsData';
 
-interface IPost {
+interface IPostObj {
     kind: string; 
     data: {
         id: string;
@@ -20,7 +20,7 @@ interface IPost {
 export default function CardsList (){
 
     const [posts] = usePostsData();
-    let items = posts.map((post:IPost)=>{
+    let items = posts.map((post:IPostObj)=>{
         return <Card data={post.data} key={post.data.id}/>
     });
 
