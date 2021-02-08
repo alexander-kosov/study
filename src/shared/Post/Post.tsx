@@ -15,9 +15,9 @@ export default function Post (props:IPost){
 			if(event.target instanceof Node && !ref.current?.contains(event.target)){
 				console.log('clicked!',event.target);
 				props.onClose?.();
-				/*
-				про эту последнюю точку f?.() между  ? и (), то она нужна для того, чтобы не перепутать с тернарным оператором. Вот тут тред на эту тему можно почитать https://github.com/claudepache/es-optional-chaining/issues/3
-				*/
+				
+				//про эту последнюю точку f?.() между  ? и (), то она нужна для того, чтобы //не перепутать с тернарным оператором. Вот тут тред на эту тему можно //почитать https://github.com/claudepache/es-optional-chaining/issues/3
+				
 			}
 			
 		};
