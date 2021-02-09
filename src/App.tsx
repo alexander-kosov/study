@@ -11,6 +11,8 @@ import { tokenContext } from './shared/context/tokenContext';
 //import { userContext } from './shared/context/userContext';
 import { UserContextProvider } from './shared/context/userContext';
 import { PostsContextProvider } from './shared/context/postsContext';
+import { commentContext } from './shared/context/commentContext';
+
 //---------------------------------
 import { MyHooks, useIsMounted } from './HooksExample';
 import {getValue} from '../utils/react/pickFromSyntheticEvent';
@@ -19,6 +21,7 @@ import {MyList, GenericList} from './shared/GenericList/GenericList';
 
 import {merge} from '../utils/js/merge';
 import Dropdown from './shared/Dropdown';
+
 //import { nanoid } from 'nanoid';
 
 /* выносится ВНЕ AppComponent, чтобы не перегенерировалась каждый раз */
@@ -52,22 +55,29 @@ function AppComponent(){
         setList(list.concat(generateId({text: generateRandomString() })))
     };
     //------------------------------------------------------------------------
-
+    const [commentValue, setCommentValue] = useState(''); 
     const [token] = useToken();
 
+    const CommentProvider = commentContext.Provider;
+
     return (
-        <tokenContext.Provider value={token}>
-            <UserContextProvider >
-                <PostsContextProvider>
-                <Layout>
-                    <Header />
-                    <Content>
-                        <CardsList />
-                    </Content>
-                </Layout>
-                </PostsContextProvider>
-            </UserContextProvider >
-        </tokenContext.Provider>
+        <CommentProvider value={{
+            value: commentValue,
+            onChange: setCommentValue
+        }}>
+            <tokenContext.Provider value={token}>
+                <UserContextProvider >
+                    <PostsContextProvider>
+                    <Layout>
+                        <Header />
+                        <Content>
+                            <CardsList />
+                        </Content>
+                    </Layout>
+                    </PostsContextProvider>
+                </UserContextProvider >
+            </tokenContext.Provider>
+        </CommentProvider>
     );
 }
 

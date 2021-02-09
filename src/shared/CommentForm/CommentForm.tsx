@@ -1,12 +1,13 @@
-import React, { ChangeEvent, FormEvent, useState } from 'react';
+import React, { ChangeEvent, FormEvent, useContext } from 'react';
+import { commentContext } from '../context/commentContext';
 import styles from './commentform.less';
 
 export default function CommentForm (){
    
-   const [value, setValue] = useState(''); 
+    const {value, onChange} = useContext(commentContext);
 
     function handleChange(event: ChangeEvent<HTMLTextAreaElement>){
-        setValue(event.target.value);
+        onChange(event.target.value);
     }
 
     function handleSubmit(event: FormEvent){
@@ -18,8 +19,7 @@ export default function CommentForm (){
     return (
         <form className={styles.form} onSubmit={handleSubmit}>
             <textarea className={styles.input} value={value} onChange={handleChange}/>
-            <button type="submit" className={styles.button}>Комментировать</button>
-		
+            <button type="submit" className={styles.button}>Комментировать</button>		
 		</form>
     );
 }
