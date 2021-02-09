@@ -7,7 +7,7 @@ import styles from './commentitem.less';
 export default function CommentItem (){
 
     return (
-        <div className={styles.commentItem}>
+        <li className={styles.commentItem}>
             <div className={styles.commentCaption}>
                 <img className={styles.avatar}
                     src="https://cdn.dribbble.com/users/133681/avatars/mini/46a5fbb029199915f49a465fb2dc4ac9.png?1589805794"
@@ -20,7 +20,7 @@ export default function CommentItem (){
             <div className={styles.commentBody}>
                 asdgf wg ertgherth tybh werth rtyj yun fgb erth rtjk rythn dfgh ertjhrt yj
             </div>
-            
+
             <div className={styles.commentButtons}>
             <button className={styles.button}>
                 <CommentIcon />
@@ -35,6 +35,6 @@ export default function CommentItem (){
                 <span>Пожаловаться</span>                
             </button>
             </div>
-        </div>
+        </li>
 	);
 }
