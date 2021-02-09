@@ -8,7 +8,7 @@ interface ICardImageProps {
 }
 
 export default function CardImage ({data}: ICardImageProps){
-console.log("thumb:",data.thumbnail);
+
 if(data.thumbnail!=='default') {
     return (
         <div className={styles.preview}>
