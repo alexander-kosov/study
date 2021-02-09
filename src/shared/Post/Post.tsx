@@ -2,6 +2,8 @@ import React, {useEffect, useRef} from 'react';
 import styles from './post.less';
 import ReactDOM from 'react-dom';
 import CommentForm from '../CommentForm';
+import CommentList from '../CommentList';
+
 interface IPost {
 	onClose?:()=> void;	
 }
@@ -45,6 +47,7 @@ export default function Post (props:IPost){
 			</div>
 
 			<CommentForm />
+			<CommentList />
 		</div>		
 	), node);
 }

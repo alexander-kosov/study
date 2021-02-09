@@ -1,0 +1,66 @@
+.commentItem {
+    display: flex;
+    flex-flow: column nowrap;
+
+    .commentCaption {
+        display: flex;
+        flex-flow: row nowrap;
+        margin-bottom: 9px;
+    }
+    .commentBody {
+        flex: auto;
+        margin-bottom: 11px;
+        font: 400 14px/16px Roboto;
+        color: var(--black);
+    }
+    .commentButtons {
+        display: flex;
+        flex-flow: row nowrap;        
+    }
+
+    .avatar {
+        border-radius: 20px;
+        width: 20px;
+        height: 20px;
+        margin: 0 7px 0 0;
+    }
+    .name {
+        font: 400 14px/16px Roboto;
+        color: var(--orange);
+        padding: 2px 7px 4px;
+    }
+    .date {
+        font: 400 14px/16px Roboto;
+        color: var(--greyC4);
+        padding: 2px 7px 4px;
+    }
+    .group {
+        font: 400 14px/16px Roboto;
+        color:var(--black);
+        background: var(--greyD9);
+        padding: 2px 7px 4px;
+        margin: 0 4px;
+    }
+    .button {
+        font: 400 14px/16px Roboto;
+        color:var(--grey99);
+        display: flex;
+        align-items: center;
+        & > svg {
+            margin-right: 8px;
+        }
+
+        & > * {
+        font: 400 14px/16px Roboto;
+        color:var(--grey99);            
+        }
+    }
+    .button + .button {
+        margin-left: 20px;
+    }
+
+}
+
+@media all and (min-width: 1024px) {
+  
+}
