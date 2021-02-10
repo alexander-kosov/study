@@ -1,10 +1,14 @@
 import React from 'react';
 import { CommentIcon, ShareIcon, WarningIcon } from '../../Icons';
 import styles from './commentitem.less';
+import ResponseComment from '../ResponseComment';
+
 
 //import {BlockIcon, WarningIcon, CommentIcon, ShareIcon, SaveIcon} from '../../../../Icons';
 
 export default function CommentItem (){
+
+    const [openResponseComment, setOpenResponseComment] = React.useState(false);
 
     return (
         <li className={styles.commentItem}>
@@ -22,19 +26,20 @@ export default function CommentItem (){
             </div>
 
             <div className={styles.commentButtons}>
-            <button className={styles.button}>
-                <CommentIcon />
-                <span>Ответить</span>
-            </button>
-            <button className={styles.button}>
-                <ShareIcon />
-                <span>Поделиться</span>
-            </button>
-            <button className={styles.button}>
-                <WarningIcon />    
-                <span>Пожаловаться</span>                
-            </button>
+                <button className={styles.button} onClick={()=>setOpenResponseComment(true)}>
+                    <CommentIcon />
+                    <span>Ответить</span>
+                </button>
+                <button className={styles.button}>
+                    <ShareIcon />
+                    <span>Поделиться</span>
+                </button>
+                <button className={styles.button}>
+                    <WarningIcon />    
+                    <span>Пожаловаться</span>                
+                </button>
             </div>
+            {openResponseComment && <ResponseComment />}
         </li>
 	);
 }

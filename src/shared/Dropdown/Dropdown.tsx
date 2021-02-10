@@ -46,7 +46,6 @@ export default function Dropdown ({button, children, isOpen, onClose=NOOP, onOpe
         <>
         {isDropdownOpen && (
             <div className={styles.listContainer} style={isDropdownCoord} >
-            
                 <div className={styles.list} onClick={()=>setIsDropdownOpen(false)}>
                     {children}
                 </div>
