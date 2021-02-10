@@ -18,10 +18,9 @@ export default function Dropdown ({button, children, isOpen, onClose=NOOP, onOpe
     const [isDropdownCoord, setIsDropdownCoord] = React.useState<{top: string, left: string}>({top: '0', left: '0'})
 
     const containerRef = React.useRef<HTMLDivElement>(null);
-    const ref = React.useRef<HTMLDivElement>(null);
-    
+
 	React.useEffect(()=>{
-	    console.log("#",containerRef.current?.getBoundingClientRect(), ref.current)
+	    
         let head = containerRef.current?.getBoundingClientRect();
         let headBottom = head?.bottom;
         let headRight = head?.right;
@@ -46,7 +45,7 @@ export default function Dropdown ({button, children, isOpen, onClose=NOOP, onOpe
     const drop = ReactDOM.createPortal((
         <>
         {isDropdownOpen && (
-            <div className={styles.listContainer} style={isDropdownCoord} ref={ref}>
+            <div className={styles.listContainer} style={isDropdownCoord} >
             
                 <div className={styles.list} onClick={()=>setIsDropdownOpen(false)}>
                     {children}
