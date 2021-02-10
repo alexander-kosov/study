@@ -1,13 +1,18 @@
 import React, { FormEvent, useEffect, useRef } from 'react';
 import styles from './responsecomment.less';
 
-export default function ResponseComment (){
+interface IResponseComment {
+	onClose?:()=> void;	
+}
+
+export default function ResponseComment (props:IResponseComment){
 
   const ref = useRef<HTMLTextAreaElement>(null);
 
   function handleSubmit(event: FormEvent){
       event.preventDefault();
       console.log(ref.current?.value);
+      props.onClose?.();
   }
   useEffect(() => {
     ref.current && ref.current.focus();

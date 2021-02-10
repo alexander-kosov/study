@@ -39,7 +39,7 @@ export default function CommentItem (){
                     <span>Пожаловаться</span>                
                 </button>
             </div>
-            {openResponseComment && <ResponseComment />}
+            {openResponseComment && <ResponseComment onClose={()=>setOpenResponseComment(false)}/>}
         </li>
 	);
 }
