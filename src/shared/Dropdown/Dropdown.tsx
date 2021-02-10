@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import styles from './dropdown.less';
 
 interface IDropdownProps {
@@ -14,6 +15,22 @@ const NOOP = () => {}//чтобы onOpen и onClose срабатывали вс�
 export default function Dropdown ({button, children, isOpen, onClose=NOOP, onOpen=NOOP}: IDropdownProps){
     const [isDropdownOpen, setIsDropdownOpen] = React.useState(isOpen);
 
+    const [isDropdownCoord, setIsDropdownCoord] = React.useState<{top: string, left: string}>({top: '0', left: '0'})
+
+    const containerRef = React.useRef<HTMLDivElement>(null);
+    const ref = React.useRef<HTMLDivElement>(null);
+    
+	React.useEffect(()=>{
+	    console.log("#",containerRef.current?.getBoundingClientRect(), ref.current)
+        let head = containerRef.current?.getBoundingClientRect();
+        let headBottom = head?.bottom;
+        let headRight = head?.right;
+        setIsDropdownCoord({top: headBottom+'px', left:headRight+'px'});
+        //console.log('coord', isDropdownCoord);
+	},[isDropdownOpen]);
+
+
+
     React.useEffect(() => setIsDropdownOpen(isOpen), [isOpen]);
     React.useEffect(() => isDropdownOpen? onOpen() : onClose() , [isDropdownOpen]);
 
@@ -24,21 +41,40 @@ export default function Dropdown ({button, children, isOpen, onClose=NOOP, onOpe
         }
     };
 
+    const node = document.querySelector('#modal_root');
+	if(!node) return null;
+    const drop = ReactDOM.createPortal((
+        <>
+        {isDropdownOpen && (
+            <div className={styles.listContainer} style={isDropdownCoord} ref={ref}>
+            
+                <div className={styles.list} onClick={()=>setIsDropdownOpen(false)}>
+                    {children}
+                </div>
+            </div>
+            
+        )}  
+        </>    		
+	), node);
+    
     return (
-        <div className={styles.container}>
+        <div className={styles.container} ref={containerRef}>
             <div onClick={handleOpen}>
                 {button}
             </div>
-            {isDropdownOpen && (
-                <div className={styles.listContainer}>
-                    {/* ..из-за подъема события, сначала сработает клик на children, а затем
-                    ()=>setIsDropdownOpen(false) = закроется сам список.  */}
-                    <div className={styles.list} onClick={()=>setIsDropdownOpen(false)}>
-                        {children}
-                    </div>
-                </div>
-                
-            )}
+            {isDropdownOpen && drop}
         </div>
     );
+
+    
+
+
+
+
+
+
+
+
+
+
 }
