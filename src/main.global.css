@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 #modal_root {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
