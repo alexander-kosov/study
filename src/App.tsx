@@ -21,7 +21,7 @@ const initialState = {
     commentText: 'Усем превед!',
 
 };
-const rootReducer: Reducer<any, Action<any>> = (state=initialState, action)=>{
+const rootReducer: Reducer = (state=initialState, action)=>{
     return state;
 }
 
