@@ -14,6 +14,7 @@ import { PostsContextProvider } from './shared/context/postsContext';
 import { commentContext } from './shared/context/commentContext';
 
 import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
 const store = createStore(()=>{});
 
@@ -26,29 +27,32 @@ function AppComponent(){
     // console.log(url.searchParams.get('code'));
     //---------------------------------------------------------
     
+
     const [commentValue, setCommentValue] = useState(''); 
     const [token] = useToken();
 
     const CommentProvider = commentContext.Provider;
 
     return (
-        <CommentProvider value={{
-            value: commentValue,
-            onChange: setCommentValue
-        }}>
-            <tokenContext.Provider value={token}>
-                <UserContextProvider >
-                    <PostsContextProvider>
-                    <Layout>
-                        <Header />
-                        <Content>
-                            <CardsList />
-                        </Content>
-                    </Layout>
-                    </PostsContextProvider>
-                </UserContextProvider >
-            </tokenContext.Provider>
-        </CommentProvider>
+        <Provider store={store}>
+            <CommentProvider value={{
+                value: commentValue,
+                onChange: setCommentValue
+            }}>
+                <tokenContext.Provider value={token}>
+                    <UserContextProvider >
+                        <PostsContextProvider>
+                        <Layout>
+                            <Header />
+                            <Content>
+                                <CardsList />
+                            </Content>
+                        </Layout>
+                        </PostsContextProvider>
+                    </UserContextProvider >
+                </tokenContext.Provider>
+            </CommentProvider>
+        </Provider>
     );
 }
 
