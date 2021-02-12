@@ -13,6 +13,10 @@ import { UserContextProvider } from './shared/context/userContext';
 import { PostsContextProvider } from './shared/context/postsContext';
 import { commentContext } from './shared/context/commentContext';
 
+import { createStore } from 'redux';
+
+const store = createStore(()=>{});
+
 //import { nanoid } from 'nanoid';
 
 
