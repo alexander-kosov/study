@@ -1,4 +1,4 @@
-import React, {Reducer, useState} from 'react';
+import React, {useState} from 'react';
 import { hot } from 'react-hot-loader/root';
 import Layout from './shared/Layout';
 import './main.global.css';
@@ -13,13 +13,15 @@ import { UserContextProvider } from './shared/context/userContext';
 import { PostsContextProvider } from './shared/context/postsContext';
 import { commentContext } from './shared/context/commentContext';
 
-import { Action, createStore } from 'redux';
+import { Action, createStore, Reducer } from 'redux';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
+interface State {
+    commentText?: string
+};
 const initialState = {
     commentText: 'Усем превед!',
-
 };
 const rootReducer: Reducer = (state=initialState, action)=>{
     return state;
