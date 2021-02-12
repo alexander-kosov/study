@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {Reducer, useState} from 'react';
 import { hot } from 'react-hot-loader/root';
 import Layout from './shared/Layout';
 import './main.global.css';
@@ -13,10 +13,19 @@ import { UserContextProvider } from './shared/context/userContext';
 import { PostsContextProvider } from './shared/context/postsContext';
 import { commentContext } from './shared/context/commentContext';
 
-import { createStore } from 'redux';
+import { Action, createStore } from 'redux';
 import { Provider } from 'react-redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
-const store = createStore(()=>{});
+const initialState = {
+    commentText: 'Усем превед!',
+
+};
+const rootReducer: Reducer<any, Action<any>> = (state=initialState, action)=>{
+    return state;
+}
+
+const store = createStore(rootReducer, composeWithDevTools());
 
 //import { nanoid } from 'nanoid';
 
