@@ -1,8 +1,8 @@
 import React, {useEffect, useRef} from 'react';
 import styles from './post.less';
 import ReactDOM from 'react-dom';
-import CommentForm from '../CommentForm';
 import CommentList from '../CommentList';
+import CommentFormContainer from '../CommentFormContainer';
 
 interface IPost {
 	onClose?:()=> void;	
@@ -46,7 +46,7 @@ export default function Post (props:IPost){
 				<p>9.1 Верстаем карточку поста, используя ReactPortal</p>
 			</div>
 
-			<CommentForm />
+			<CommentFormContainer />
 			<CommentList />
 		</div>		
 	), node);
