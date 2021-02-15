@@ -13,7 +13,7 @@ import { UserContextProvider } from './shared/context/userContext';
 import { PostsContextProvider } from './shared/context/postsContext';
 import { commentContext } from './shared/context/commentContext';
 
-import { createStore, Reducer } from 'redux';
+import { bindActionCreators, createStore, Reducer } from 'redux';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
@@ -26,7 +26,15 @@ const initialState: RootState = {
     commentText: 'Усем превед!',
 };
 const rootReducer: Reducer<RootState> = (state=initialState, action)=>{
-    return state;
+    switch(action.type){
+        case 'UPDATE_COMMENT':
+            return {
+                ...state,
+                commentText: action.text
+            }
+        default:
+            return state;
+    }
 }
 
 const store = createStore(rootReducer, composeWithDevTools());
