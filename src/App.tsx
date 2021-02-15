@@ -13,7 +13,7 @@ import { UserContextProvider } from './shared/context/userContext';
 import { PostsContextProvider } from './shared/context/postsContext';
 import { commentContext } from './shared/context/commentContext';
 
-import { bindActionCreators, createStore, Reducer } from 'redux';
+import { ActionCreator, AnyAction, bindActionCreators, createStore, Reducer } from 'redux';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
@@ -25,9 +25,15 @@ export type RootState = {
 const initialState: RootState = {
     commentText: 'Усем превед!',
 };
+const UPDATE_COMMENT = 'UPDATE_COMMENT';
+export const updateComment: ActionCreator<AnyAction> = (text) => ({
+    type: UPDATE_COMMENT,
+    text
+});
+
 const rootReducer: Reducer<RootState> = (state=initialState, action)=>{
     switch(action.type){
-        case 'UPDATE_COMMENT':
+        case UPDATE_COMMENT:
             return {
                 ...state,
                 commentText: action.text

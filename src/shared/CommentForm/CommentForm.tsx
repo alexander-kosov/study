@@ -1,6 +1,6 @@
-import React, { ChangeEvent, FormEvent, useContext } from 'react';
-import { useDispatch, useSelector, useStore } from 'react-redux';
-import { RootState } from '../../App';
+import React, { ChangeEvent, FormEvent } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState, updateComment } from '../../App';
 import styles from './commentform.less';
 
 export default function CommentForm (){
@@ -11,7 +11,7 @@ export default function CommentForm (){
     const dispatch = useDispatch();
 
     function handleChange(event: ChangeEvent<HTMLTextAreaElement>){
-        dispatch({type: 'UPDATE_COMMENT', text: event.target.value});
+        dispatch(updateComment(event.target.value));
     }
 
     function handleSubmit(event: FormEvent){
