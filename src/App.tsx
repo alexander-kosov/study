@@ -53,10 +53,7 @@ function AppComponent(){
     // console.log(url.searchParams.get('code'));
     //---------------------------------------------------------
     
-
-    const [commentValue, setCommentValue] = useState(''); 
     const [token] = useToken();
-
 
     return (
         <Provider store={store}>
