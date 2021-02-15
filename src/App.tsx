@@ -13,17 +13,19 @@ import { UserContextProvider } from './shared/context/userContext';
 import { PostsContextProvider } from './shared/context/postsContext';
 import { commentContext } from './shared/context/commentContext';
 
-import { Action, createStore, Reducer } from 'redux';
+import { createStore, Reducer } from 'redux';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-interface State {
-    commentText?: string
+
+export type RootState = {
+    commentText: string;
 };
-const initialState = {
+
+const initialState: RootState = {
     commentText: 'Усем превед!',
 };
-const rootReducer: Reducer = (state=initialState, action)=>{
+const rootReducer: Reducer<RootState> = (state=initialState, action)=>{
     return state;
 }
 
