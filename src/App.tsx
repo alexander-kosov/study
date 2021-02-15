@@ -11,7 +11,6 @@ import { tokenContext } from './shared/context/tokenContext';
 //import { userContext } from './shared/context/userContext';
 import { UserContextProvider } from './shared/context/userContext';
 import { PostsContextProvider } from './shared/context/postsContext';
-import { commentContext } from './shared/context/commentContext';
 
 import { ActionCreator, AnyAction, bindActionCreators, createStore, Reducer } from 'redux';
 import { Provider } from 'react-redux';
@@ -58,14 +57,10 @@ function AppComponent(){
     const [commentValue, setCommentValue] = useState(''); 
     const [token] = useToken();
 
-    const CommentProvider = commentContext.Provider;
 
     return (
         <Provider store={store}>
-            <CommentProvider value={{
-                value: commentValue,
-                onChange: setCommentValue
-            }}>
+  
                 <tokenContext.Provider value={token}>
                     <UserContextProvider >
                         <PostsContextProvider>
@@ -78,7 +73,7 @@ function AppComponent(){
                         </PostsContextProvider>
                     </UserContextProvider >
                 </tokenContext.Provider>
-            </CommentProvider>
+      
         </Provider>
     );
 }
