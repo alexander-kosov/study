@@ -11,12 +11,18 @@ import CardsList from './shared/CardsList';
 import { UserContextProvider } from './shared/context/userContext';
 import { PostsContextProvider } from './shared/context/postsContext';
 
-import { createStore } from 'redux';
+import { applyMiddleware, createStore, Middleware } from 'redux';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension'; 
 import { rootReducer } from './store';
 
-const store = createStore(rootReducer, composeWithDevTools());
+const logger: Middleware = (store) => (next) => (action)=> {
+    next(action);
+}
+
+const store = createStore(rootReducer, composeWithDevTools(
+    applyMiddleware(logger)
+));
 
 //import { nanoid } from 'nanoid';
 
