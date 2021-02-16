@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { hot } from 'react-hot-loader/root';
 import Layout from './shared/Layout';
 import './main.global.css';
@@ -11,10 +11,12 @@ import CardsList from './shared/CardsList';
 import { UserContextProvider } from './shared/context/userContext';
 import { PostsContextProvider } from './shared/context/postsContext';
 
-import { applyMiddleware, createStore, Middleware } from 'redux';
+import { Action, applyMiddleware, createStore, Middleware } from 'redux';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension'; 
-import { rootReducer } from './store';
+import { rootReducer, RootState } from './store';
+import thunk, { ThunkAction } from 'redux-thunk';
+
 
 const logger: Middleware = (store) => (next) => (action)=> {
     console.log('dispatching:',action);
@@ -22,26 +24,32 @@ const logger: Middleware = (store) => (next) => (action)=> {
     console.log('action after next: ',returnValue);
 }
 
-const ping: Middleware = (store) => (next) => (action)=> {
-    console.log('ping');
-    next(action);
-}
-
-const pong: Middleware = (store) => (next) => (action)=> {
-    console.log('pong');
-    next(action);
-}
-
 const store = createStore(rootReducer, composeWithDevTools(
-    applyMiddleware(ping, pong, logger)
+    applyMiddleware(thunk, logger)
 ));
 
 //import { nanoid } from 'nanoid';
 
+const timeout =(ms: number): ThunkAction<void, RootState, unknown, Action<string>> => (dispatch,getState) => {
+    dispatch({type: 'START'});
+    setTimeout(()=>{
+        dispatch({type: 'FINISH'})
+    },ms)
+}
 
 function AppComponent(){
     
-    //const [token] = useToken();
+    // useEffect(()=>{
+    //     const token = localStorage.getItem('token') || window.__token__;
+    //     store dispatchEvent(setToken(token));
+    //     if(token){
+    //         localStorage.setItem('token',token);
+    //     }
+    // },[])
+    useEffect(()=>{
+        //@ts-ignore
+        store.dispatch(timeout(3000))
+    },[])
 
 
     return (
