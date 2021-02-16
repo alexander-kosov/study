@@ -17,11 +17,23 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { rootReducer } from './store';
 
 const logger: Middleware = (store) => (next) => (action)=> {
+    console.log('dispatching:',action);
+    const returnValue = next({...action, name: 'Valdemar'});
+    console.log('action after next: ',returnValue);
+}
+
+const ping: Middleware = (store) => (next) => (action)=> {
+    console.log('ping');
+    next(action);
+}
+
+const pong: Middleware = (store) => (next) => (action)=> {
+    console.log('pong');
     next(action);
 }
 
 const store = createStore(rootReducer, composeWithDevTools(
-    applyMiddleware(logger)
+    applyMiddleware(ping, pong, logger)
 ));
 
 //import { nanoid } from 'nanoid';
