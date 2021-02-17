@@ -1,5 +1,6 @@
 import React from 'react';
 import { useUserData } from '../../hooks/useUserData';
+
 interface IUserContextData {
     name?: string;
     iconImg?: string;
