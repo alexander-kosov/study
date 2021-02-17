@@ -32,7 +32,7 @@ export function useUserData() {
         })
         .catch((error)=>{
             console.log(error);
-            dispatch(meRequestError(error));
+            dispatch(meRequestError(String(error)));
         })
     },[token]);
 

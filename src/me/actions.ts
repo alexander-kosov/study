@@ -8,7 +8,7 @@ export const meRequest: ActionCreator<MeRequestAction> = () => ({
     type: ME_REQUEST
 });
 
-interface IUserData {
+export interface IUserData {
     name?: string;
     iconImg?: string;
 }
@@ -27,9 +27,9 @@ export const meRequestSuccess: ActionCreator<MeRequestSuccessAction> = (data: IU
 export const ME_REQUEST_ERROR = 'ME_REQUEST_ERROR';
 export type MeRequestErrorAction = {
     type: typeof ME_REQUEST_ERROR;
-    error: Error;
+    error: string;
 };
-export const meRequestError: ActionCreator<MeRequestErrorAction> = (error: Error) => ({
+export const meRequestError: ActionCreator<MeRequestErrorAction> = (error: string) => ({
     type: ME_REQUEST_ERROR,
     error
 });
