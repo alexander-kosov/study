@@ -11,31 +11,17 @@ import CardsList from './shared/CardsList';
 import { UserContextProvider } from './shared/context/userContext';
 import { PostsContextProvider } from './shared/context/postsContext';
 
-import { Action, applyMiddleware, createStore, Middleware } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension'; 
-import { rootReducer, RootState } from './store';
-import thunk, { ThunkAction } from 'redux-thunk';
-
-
-const logger: Middleware = (store) => (next) => (action)=> {
-    console.log('dispatching:',action);
-    const returnValue = next({...action, name: 'Valdemar'});
-    console.log('action after next: ',returnValue);
-}
-
-const store = createStore(rootReducer, composeWithDevTools(
-    applyMiddleware(thunk, logger)
-));
-
+import { rootReducer } from './store';
+import thunk from 'redux-thunk';
 //import { nanoid } from 'nanoid';
 
-const timeout =(ms: number): ThunkAction<void, RootState, unknown, Action<string>> => (dispatch,getState) => {
-    dispatch({type: 'START'});
-    setTimeout(()=>{
-        dispatch({type: 'FINISH'})
-    },ms)
-}
+const store = createStore(rootReducer, composeWithDevTools(
+    applyMiddleware(thunk)
+));
+
 
 function AppComponent(){
     
@@ -47,8 +33,7 @@ function AppComponent(){
     //     }
     // },[])
     useEffect(()=>{
-        //@ts-ignore
-        store.dispatch(timeout(3000))
+ 
     },[])
 
 

@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store';
 
 interface IUserData {
@@ -13,8 +13,12 @@ export function useUserData() {
 
     const token = useSelector<RootState, string>(state=>state.token);
 
+    const dispatch = useDispatch();
+
     useEffect(()=>{
         if(!token) return;
+        
+        dispatch({type: 'ME_REQUEST'});
         axios.get('https://oauth.reddit.com/api/v1/me', {
             headers:{Authorization: `bearer ${token}`}
         })
@@ -22,8 +26,12 @@ export function useUserData() {
             const userData = resp.data;
             //console.log("#",resp);
             setData({name: userData.name, iconImg: userData.icon_img});
+            dispatch({type: 'ME_REQUEST_SUCCESS'});
         })
-        .catch(console.log)
+        .catch((error)=>{
+            console.log(error);
+            dispatch({type: 'ME_REQUEST_ERROR'});
+        })
     },[token]);
 
     return [data]

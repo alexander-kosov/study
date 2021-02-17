@@ -24,6 +24,7 @@ export const updateComment: ActionCreator<AnyAction> = (text) => ({
     text
 });
 
+
 export const rootReducer: Reducer<RootState> = (state=initialState, action)=>{
     switch(action.type){
         case UPDATE_COMMENT:
