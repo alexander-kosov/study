@@ -43,17 +43,7 @@ export const saveToken=(token:string): ThunkAction<void, RootState, unknown, Act
         token
     })
 };
-// export const saveToken=(token:string): ThunkAction<void, RootState, unknown, Action<string>> => (dispatch,getState) => {
-//     dispatch(setToken(token))
-// };
-const timeout =(ms: number): ThunkAction<void, RootState, unknown, Action<string>> => (dispatch,getState) => {
-    dispatch({type: 'START'});
-    setTimeout(()=>{
-        dispatch({type: 'FINISH'})
-    },ms)
-}
 /***************************************************************/
-//dispatch(setToken(window.__token__));
 
 export const updateComment: ActionCreator<UpdateCommentAction> = (text) => ({
     type: UPDATE_COMMENT,
