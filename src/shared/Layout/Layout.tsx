@@ -12,7 +12,7 @@ export default function Layout ({children}: ILayoutProps){
     const dispatch = useDispatch();
     useEffect(()=>{
         if(window.__token__){
-            dispatch(saveToken(window.__token__));   
+            dispatch(saveToken());   
         }
     },[]);
 
