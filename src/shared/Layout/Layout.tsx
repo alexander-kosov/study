@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setToken } from '../../store';
+import { setToken, saveToken } from '../../store';
 import styles from './Layout.less';
 
 interface ILayoutProps {
@@ -12,8 +12,9 @@ export default function Layout ({children}: ILayoutProps){
     const dispatch = useDispatch();
     useEffect(()=>{
         if(window.__token__){
-            dispatch(setToken(window.__token__));   
+            dispatch(saveToken(window.__token__));   
         }
+       // dispatch(saveToken(window.__token__))
     },[]);
 
     return (
