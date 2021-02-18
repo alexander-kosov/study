@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setToken, saveToken } from '../../store';
+import { saveToken } from '../../store';
 import styles from './Layout.less';
 
 interface ILayoutProps {
@@ -14,7 +14,6 @@ export default function Layout ({children}: ILayoutProps){
         if(window.__token__){
             dispatch(saveToken(window.__token__));   
         }
-       // dispatch(saveToken(window.__token__))
     },[]);
 
     return (
