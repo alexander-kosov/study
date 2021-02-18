@@ -31,10 +31,11 @@ type SetTokenAction = {
     token: string;
 };
 
-export const setToken: ActionCreator<SetTokenAction> = (token) => ({
-    type: SET_TOKEN,
-    token
-})
+// export const setToken: ActionCreator<SetTokenAction> = (token) => ({
+//     type: SET_TOKEN,
+//     token
+// });
+
 /***************************************************************/
 export const saveToken=(token:string): ThunkAction<void, RootState, unknown, Action<string>> => (dispatch,getState) => {
     dispatch({
