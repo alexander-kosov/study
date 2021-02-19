@@ -15,7 +15,8 @@ export default function SearchBlock (){
     const data = useSelector<RootState, IUserData>(state => state.me.data );
     const loading = useSelector<RootState, boolean>(state => state.me.loading ); 
     const token = useSelector<RootState, string>(state=>state.token);
-	console.log(data)
+    
+	console.log('>>>',data);
 
 
     return (

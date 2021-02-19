@@ -8,7 +8,7 @@ import CardsList from './shared/CardsList';
 //import {useToken} from './hooks/useToken';
 
 //import { userContext } from './shared/context/userContext';
-import { UserContextProvider } from './shared/context/userContext';
+// import { UserContextProvider } from './shared/context/userContext';
 import { PostsContextProvider } from './shared/context/postsContext';
 
 import { applyMiddleware, createStore } from 'redux';
@@ -40,7 +40,7 @@ function AppComponent(){
     return (
         <Provider store={store}>
  
-            <UserContextProvider >
+            {/* <UserContextProvider > */}
                 <PostsContextProvider>
                 <Layout>
                     <Header />
@@ -49,7 +49,7 @@ function AppComponent(){
                     </Content>
                 </Layout>
                 </PostsContextProvider>
-            </UserContextProvider >
+            {/* </UserContextProvider > */}
         </Provider>
     );
 }
