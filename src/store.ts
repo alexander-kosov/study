@@ -38,7 +38,13 @@ export const setToken: ActionCreator<SetTokenAction> = (token) => ({
 
 /***************************************************************/
 export const saveToken=(): ThunkAction<void, RootState, unknown, Action<string>> => (dispatch,getState) => {
-    dispatch(setToken(window.__token__))
+    if(localStorage.getItem('reddit-token') || window.__token__ && window.__token__ !== 'undefined'){
+        const token = localStorage.getItem('reddit-token') || window.__token__;
+        dispatch(setToken(window.__token__));
+        if(token){
+            localStorage.setItem('reddit-token',token);
+        }
+    }
 };
 /***************************************************************/
 
