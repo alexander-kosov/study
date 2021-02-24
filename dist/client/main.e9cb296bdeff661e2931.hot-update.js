@@ -1,0 +1,27 @@
+webpackHotUpdate("main",{
+
+/***/ "./src/shared/CommentForm/CommentForm.tsx":
+/*!************************************************!*\
+  !*** ./src/shared/CommentForm/CommentForm.tsx ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\r\nvar formik_1 = __webpack_require__(/*! formik */ \"./node_modules/formik/dist/formik.esm.js\");\r\nfunction validateComment(value) {\r\n    var error = '';\r\n    if (value.length <= 3)\r\n        error = \"Должно быть больше 3х символов!\";\r\n    return error;\r\n}\r\nfunction validateEmail(value) {\r\n    var error;\r\n    if (!value) {\r\n        error = 'Required';\r\n    }\r\n    else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$/i.test(value)) {\r\n        error = 'Invalid email address';\r\n    }\r\n    return error;\r\n}\r\nfunction validateUsername(value) {\r\n    var error;\r\n    if (value === 'admin') {\r\n        error = 'Nice try!';\r\n    }\r\n    return error;\r\n}\r\nfunction CommentForm() {\r\n    // const [value, setValue] = useState('');\r\n    // const [touched, setTouched] = useState(false); \r\n    // const [valueError, setValueError] = useState('');\r\n    return (react_1.default.createElement(formik_1.Formik, { initialValues: {\r\n            username: '',\r\n            email: '',\r\n            comment: '',\r\n        }, onSubmit: function (values) {\r\n            // same shape as initial values\r\n            console.log(values);\r\n        } }, function (_a) {\r\n        var errors = _a.errors, touched = _a.touched, isValidating = _a.isValidating;\r\n        return (react_1.default.createElement(formik_1.Form, null,\r\n            react_1.default.createElement(formik_1.Field, { name: \"comment\", validate: validateComment, as: 'textarea' }),\r\n            errors.comment && touched.comment && react_1.default.createElement(\"div\", null, errors.comment),\r\n            react_1.default.createElement(formik_1.Field, { name: \"email\", validate: validateEmail }),\r\n            errors.email && touched.email && react_1.default.createElement(\"div\", null, errors.email),\r\n            react_1.default.createElement(formik_1.Field, { name: \"username\", validate: validateUsername }),\r\n            errors.username && touched.username && react_1.default.createElement(\"div\", null, errors.username),\r\n            react_1.default.createElement(\"button\", { type: \"submit\" }, \"Submit\")));\r\n    })\r\n    //   <Formik\r\n    //     initialValues={{\r\n    //       comment: '',\r\n    //     }}\r\n    //     onSubmit={(\r\n    //       values: Values,\r\n    //       { setSubmitting }: FormikHelpers<Values>\r\n    //     )=>{\r\n    //       //типа асинхронно\r\n    //       setTimeout(() => {\r\n    //         alert(JSON.stringify(values, null, 2));\r\n    //         setSubmitting(false);\r\n    //       }, 0);\r\n    //     }}\r\n    //   >\r\n    //     {({ errors, touched }) => (\r\n    //     <Form className={styles.form}>\r\n    //       <label htmlFor=\"comment\" style={{visibility: 'hidden'}}>Комментарий</label>\r\n    //       <Field \r\n    //         className={styles.input} \r\n    //         type=\"comment\" \r\n    //         id=\"comment\" \r\n    //         name=\"comment\" \r\n    //         as='textarea'\r\n    //         validate={validateComment}\r\n    //         {...errors.comment && touched.comment && <div>{errors.comment}</div>}\r\n    //       />\r\n    //       <button type=\"submit\" className={styles.button}>Комментировать</button>\t\t\r\n    //     </Form>\r\n    //     )}\r\n    //  </Formik>\r\n    //=========================================================================================\r\n    // <form className={styles.form} onSubmit={handleSubmit}>\r\n    //     <textarea className={styles.input} \r\n    //     value={value} \r\n    //     onChange={handleChange}\r\n    //     // onBlur={handleBlur}\r\n    //     aria-invalid={valueError?'true':undefined}\r\n    //     />\r\n    //     {touched && validateValue() && (<div style={{color: 'red'}}>{validateValue()}</div>)}\r\n    //     <button type=\"submit\" className={styles.button}>Комментировать</button>\t\t\r\n    // </form>\r\n    );\r\n}\r\nexports.default = CommentForm;\r\n\n\n//# sourceURL=webpack:///./src/shared/CommentForm/CommentForm.tsx?");
+
+/***/ }),
+
+/***/ "./src/shared/CommentForm/index.ts":
+/*!*****************************************!*\
+  !*** ./src/shared/CommentForm/index.ts ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar CommentForm_1 = __importDefault(__webpack_require__(/*! ./CommentForm */ \"./src/shared/CommentForm/CommentForm.tsx\"));\r\nexports.default = CommentForm_1.default;\r\n\n\n//# sourceURL=webpack:///./src/shared/CommentForm/index.ts?");
+
+/***/ })
+
+})
