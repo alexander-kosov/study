@@ -14,6 +14,11 @@ export default function CommentForm (){
 
     function handleChange(event: ChangeEvent<HTMLTextAreaElement>){
         setValue(event.target.value);
+        setValueTouched(true);
+    }
+
+    function handleBlur(){
+        setValueTouched(true);
     }
 
     function validateValue(){
@@ -27,8 +32,9 @@ export default function CommentForm (){
             <textarea className={styles.input} 
             value={value} 
             onChange={handleChange}
+            onBlur={handleBlur}
             aria-invalid={valueError?'true':undefined}/>
-            {validateValue() && (<div style={{color: 'red'}}>{validateValue()}</div>)}
+            {valueTouched && validateValue() && (<div style={{color: 'red'}}>{validateValue()}</div>)}
             <button type="submit" className={styles.button} disabled={!isFormValid}>Комментировать</button>		
 		</form>
     );
