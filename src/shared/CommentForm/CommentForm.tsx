@@ -2,35 +2,42 @@ import React, { ChangeEvent, FormEvent, useState } from 'react';
 import styles from './commentform.less';
 import { Formik, Field, Form, FormikHelpers } from 'formik';
 
+
+function validateComment(value: string) {
+  let error='';
+  if(value.length>=3) error="Должно быть больше 3х символов!"
+  return error;
+}
+
 export default function CommentForm (){
-    const [value, setValue] = useState('');
-    const [touched, setTouched] = useState(false); 
-    const [valueError, setValueError] = useState('');
+    // const [value, setValue] = useState('');
+    // const [touched, setTouched] = useState(false); 
+    // const [valueError, setValueError] = useState('');
 
-    function handleSubmit(event: FormEvent){
-        event.preventDefault();
-        setTouched(true);
-        setValueError(validateValue());
+    // function handleSubmit(event: FormEvent){
+    //     event.preventDefault();
+    //     setTouched(true);
+    //     setValueError(validateValue());
 
-        const isFormValid = !validateValue();
-        if(!isFormValid) return
+    //     const isFormValid = !validateValue();
+    //     if(!isFormValid) return
         
-        console.log("send:",value);
-    }
+    //     console.log("send:",value);
+    // }
 
-    function handleChange(event: ChangeEvent<HTMLTextAreaElement>){
-        setValue(event.target.value);
-        //setValueTouched(true);
-    }
+    // function handleChange(event: ChangeEvent<HTMLTextAreaElement>){
+    //     setValue(event.target.value);
+    //     //setValueTouched(true);
+    // }
 
-    function handleBlur(){
-        //setValueTouched(true);
-    }
+    // function handleBlur(){
+    //     //setValueTouched(true);
+    // }
 
-    function validateValue(){
-        if(value.length <= 3 ) return 'Нужно больше трёх символов';
-        return '';
-    }
+    // function validateValue(){
+    //     if(value.length <= 3 ) return 'Нужно больше трёх символов';
+    //     return '';
+    // }
     
     interface Values {
       comment: string;
@@ -52,12 +59,22 @@ export default function CommentForm (){
           }, 0);
         }}
       >
+        {({ errors, touched }) => (
         <Form className={styles.form}>
           <label htmlFor="comment" style={{visibility: 'hidden'}}>Комментарий</label>
-          <Field className={styles.input} type="comment" id="comment" name="comment" as='textarea'/>
+          <Field 
+            className={styles.input} 
+            type="comment" 
+            id="comment" 
+            name="comment" 
+            as='textarea'
+            validate={validateComment}
+            {...errors.comment && touched.comment && <div>{errors.comment}</div>}
+          />
           <button type="submit" className={styles.button}>Комментировать</button>		
 
         </Form>
+        )}
      </Formik>
 
 
