@@ -45,7 +45,7 @@ export default function CommentForm (){
           values: Values,
           { setSubmitting }: FormikHelpers<Values>
         )=>{
-
+          //типа асинхронно
           setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
             setSubmitting(false);
