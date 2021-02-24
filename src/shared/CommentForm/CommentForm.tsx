@@ -10,6 +10,7 @@ export default function CommentForm (){
     function handleSubmit(event: FormEvent){
         event.preventDefault();
         setTouched(true);
+        setValueError(validateValue());
 
         const isFormValid = !validateValue();
         if(!isFormValid) return
@@ -37,7 +38,8 @@ export default function CommentForm (){
             value={value} 
             onChange={handleChange}
             // onBlur={handleBlur}
-            aria-invalid={valueError?'true':undefined}/>
+            aria-invalid={valueError?'true':undefined}
+            />
             {touched && validateValue() && (<div style={{color: 'red'}}>{validateValue()}</div>)}
             <button type="submit" className={styles.button}>Комментировать</button>		
 		</form>
