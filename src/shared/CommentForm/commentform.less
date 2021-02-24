@@ -23,6 +23,11 @@
     background: var(--orange);
     border-radius: 0px 0px 3px 0px;
     align-self: flex-end;
+    &[disabled]{
+        opacity: .5;
+        cursor: default;
+        user-select: none;
+    }
 }
 
 @media all and (min-width: 1024px) {
