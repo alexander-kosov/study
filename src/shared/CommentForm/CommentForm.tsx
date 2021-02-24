@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import styles from './commentform.less';
-
+import { Formik, Field, Form, FormikHelpers } from 'formik';
 
 export default function CommentForm (){
     const [value, setValue] = useState('');
@@ -32,16 +32,46 @@ export default function CommentForm (){
         return '';
     }
     
+    interface Values {
+      comment: string;
+    }
+
     return (
-        <form className={styles.form} onSubmit={handleSubmit}>
-            <textarea className={styles.input} 
-            value={value} 
-            onChange={handleChange}
-            // onBlur={handleBlur}
-            aria-invalid={valueError?'true':undefined}
-            />
-            {touched && validateValue() && (<div style={{color: 'red'}}>{validateValue()}</div>)}
-            <button type="submit" className={styles.button}>Комментировать</button>		
-		</form>
+      <Formik
+        initialValues={{
+          comment: '',
+        }}
+        onSubmit={(
+          values: Values,
+          { setSubmitting }: FormikHelpers<Values>
+        )=>{
+
+          setTimeout(() => {
+            alert(JSON.stringify(values, null, 2));
+            setSubmitting(false);
+          }, 0);
+        }}
+      >
+        <Form className={styles.form}>
+          <label htmlFor="comment" style={{visibility: 'hidden'}}>Комментарий</label>
+          <Field className={styles.input} type="comment" id="comment" name="comment" as='textarea'/>
+          <button type="submit" className={styles.button}>Комментировать</button>		
+
+        </Form>
+     </Formik>
+
+
+
+
+        // <form className={styles.form} onSubmit={handleSubmit}>
+        //     <textarea className={styles.input} 
+        //     value={value} 
+        //     onChange={handleChange}
+        //     // onBlur={handleBlur}
+        //     aria-invalid={valueError?'true':undefined}
+        //     />
+        //     {touched && validateValue() && (<div style={{color: 'red'}}>{validateValue()}</div>)}
+        //     <button type="submit" className={styles.button}>Комментировать</button>		
+		// </form>
     );
 }
