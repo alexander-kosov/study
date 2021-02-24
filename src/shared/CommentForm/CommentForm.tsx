@@ -4,38 +4,42 @@ import styles from './commentform.less';
 
 export default function CommentForm (){
     const [value, setValue] = useState('');
-    const [valueTouched, setValueTouched] = useState(false); 
+    const [touched, setTouched] = useState(false); 
     const [valueError, setValueError] = useState('');
 
     function handleSubmit(event: FormEvent){
         event.preventDefault();
+        setTouched(true);
+
+        const isFormValid = !validateValue();
+        if(!isFormValid) return
+        
         console.log("send:",value);
     }
 
     function handleChange(event: ChangeEvent<HTMLTextAreaElement>){
         setValue(event.target.value);
-        setValueTouched(true);
+        //setValueTouched(true);
     }
 
     function handleBlur(){
-        setValueTouched(true);
+        //setValueTouched(true);
     }
 
     function validateValue(){
         if(value.length <= 3 ) return 'Нужно больше трёх символов';
         return '';
     }
-    const isFormValid = !validateValue();
-
+    
     return (
         <form className={styles.form} onSubmit={handleSubmit}>
             <textarea className={styles.input} 
             value={value} 
             onChange={handleChange}
-            onBlur={handleBlur}
+            // onBlur={handleBlur}
             aria-invalid={valueError?'true':undefined}/>
-            {valueTouched && validateValue() && (<div style={{color: 'red'}}>{validateValue()}</div>)}
-            <button type="submit" className={styles.button} disabled={!isFormValid}>Комментировать</button>		
+            {touched && validateValue() && (<div style={{color: 'red'}}>{validateValue()}</div>)}
+            <button type="submit" className={styles.button}>Комментировать</button>		
 		</form>
     );
 }
