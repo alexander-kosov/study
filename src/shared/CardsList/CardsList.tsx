@@ -29,16 +29,7 @@ export default function CardsList (){
     const [nextAfter, setNextAfter] = useState(''); //"курсор" для курсорной пагинации 
     const bottomOfList = useRef<HTMLDivElement>(null);
 
-    // useEffect(() => {
-
-    //     if(!token) return;
-
-
-  
-    //     load(); //!!!!!!!!!!!!!!!
-    // },[token]);
-
-//IntersectionObserver
+    //IntersectionObserver
     useEffect(()=>{
         async function load(){
             setLoading(true);
@@ -78,7 +69,7 @@ export default function CardsList (){
                 observer.unobserve(bottomOfList.current)
             }
         }
-    },[bottomOfList.current, nextAfter]);
+    },[bottomOfList.current, nextAfter, token]);
 
 
     // const [posts] = usePostsData();
