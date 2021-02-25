@@ -23,7 +23,7 @@ interface IPostObj {
 export default function CardsList (){
 
     const token = useSelector<RootState>(state=>state.token);
-    const [posts, setPosts] = useState([]);
+    const [posts, setPosts] = useState<IPostObj[]>([]);
     useEffect(()=>{
 
         if(!token) return;
@@ -34,7 +34,7 @@ export default function CardsList (){
                 //const response = await axios.get('https://oauth.reddit.com/rising/',{
                     headers: {Authorization: `bearer ${token}`}
                 });
-                console.log('response:',children);
+                //console.log('response:',children);
                 setPosts(children);
             } catch (error){
                 console.error(error);
