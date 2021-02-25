@@ -24,11 +24,16 @@ export default function CardsList (){
 
     const token = useSelector<RootState>(state=>state.token);
     const [posts, setPosts] = useState<IPostObj[]>([]);
+    const [loading, setLoading] = useState(false);//false т.к. изначально загрузки нет, нет токена
+
+
     useEffect(()=>{
 
         if(!token) return;
 
         async function load(){
+            setLoading(true);
+
             try{
                 const {data: {data: {children}}} = await axios.get('https://oauth.reddit.com/rising/',{
                 //const response = await axios.get('https://oauth.reddit.com/rising/',{
@@ -39,6 +44,7 @@ export default function CardsList (){
             } catch (error){
                 console.error(error);
             }
+            setLoading(false);
         }
   
         load(); //!!!!!!!!!!!!!!!
@@ -60,6 +66,8 @@ export default function CardsList (){
              {posts.map((post:IPostObj) => {
                return <Card data={post.data} key={post.data.id}/> 
              })}
+             
+              {loading && 'Загрузка...'}
         </ul>
     )   
 
