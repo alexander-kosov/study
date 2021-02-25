@@ -37,7 +37,10 @@ export default function CardsList (){
             try{
                 const {data: {data: {children}}} = await axios.get('https://oauth.reddit.com/rising/',{
                 //const response = await axios.get('https://oauth.reddit.com/rising/',{
-                    headers: {Authorization: `bearer ${token}`}
+                    headers: {Authorization: `bearer ${token}`},
+                    params: {
+                        limit: 10,
+                    }
                 });
                 //console.log('response:',children);
                 setPosts(children);
@@ -64,6 +67,13 @@ export default function CardsList (){
     // );
     return (
          <ul className={styles.cardslist}>
+
+            {posts.length === 0 && !loading && !errorLoading && (
+              <div style={{textAlign: 'center'}}>
+                Нет ни одного поста
+            </div>
+            )}
+
              {posts.map((post:IPostObj) => {
                return <Card data={post.data} key={post.data.id}/> 
              })}
