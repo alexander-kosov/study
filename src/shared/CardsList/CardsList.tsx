@@ -28,33 +28,43 @@ export default function CardsList (){
     const [errorLoading, setErrorLoading] = useState('');
     const [nextAfter, setNextAfter] = useState(''); //"курсор" для курсорной пагинации 
     const bottomOfList = useRef<HTMLDivElement>(null);
+    
+    const [count, setCount] = useState(0); //счетчик страниц
+    
+
+    async function load(){
+        setLoading(true);
+        setErrorLoading('');
+        try{
+            const {data: {data: {after, children}}} = await axios.get('https://oauth.reddit.com/rising/',{
+            //const response = await axios.get('https://oauth.reddit.com/rising/',{
+                headers: {Authorization: `bearer ${token}`},
+                params: {
+                    limit: 10,
+                    after: nextAfter,
+                }
+            });
+            //console.log('response:',children);
+            setCount(prevCount=>prevCount+1);
+            setNextAfter(after);
+            setPosts(prevChildren => prevChildren.concat(...children));
+            
+            
+        } catch (error){
+            //console.error(error);
+            setErrorLoading(String(error));
+        }
+        setLoading(false);console.log("count:",count);
+    }
+
 
     //IntersectionObserver
     useEffect(()=>{
-        async function load(){
-            setLoading(true);
-            setErrorLoading('');
-            try{
-                const {data: {data: {after, children}}} = await axios.get('https://oauth.reddit.com/rising/',{
-                //const response = await axios.get('https://oauth.reddit.com/rising/',{
-                    headers: {Authorization: `bearer ${token}`},
-                    params: {
-                        limit: 10,
-                        after: nextAfter,
-                    }
-                });
-                //console.log('response:',children);
-                setNextAfter(after);
-                setPosts(prevChildren => prevChildren.concat(...children));
-            } catch (error){
-                //console.error(error);
-                setErrorLoading(String(error));
-            }
-            setLoading(false);
-        }
+
         //-----------------
         const observer = new IntersectionObserver((entries) => {
-            if(entries[0].isIntersecting){
+
+            if(count==0 || entries[0].isIntersecting && count % 3){
                 load();
             } 
         },{
@@ -97,7 +107,14 @@ export default function CardsList (){
 
             <div ref={bottomOfList} />   
 
-            {loading && (
+            {count!==0 && !(count % 3) && (
+                <div style={{textAlign: 'center'}}>
+                <button 
+                    onClick={load}
+                    style={{padding:'8px', border:'1px solid #666',background:'#CCC'}}>Загрузить ещё</button>
+            </div>
+            )}
+            {loading && (count % 3) && (
                 <div style={{textAlign: 'center'}}>
                 Загрузка...
             </div>
