@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './cardslist.less';
 import Card from './Card';
 import { usePostsData } from '../../hooks/usePostsData';
@@ -26,33 +26,59 @@ export default function CardsList (){
     const [posts, setPosts] = useState<IPostObj[]>([]);
     const [loading, setLoading] = useState(false);//false т.к. изначально загрузки нет, нет токена
     const [errorLoading, setErrorLoading] = useState('');
+    const [nextAfter, setNextAfter] = useState(''); //"курсор" для курсорной пагинации 
+    const bottomOfList = useRef<HTMLDivElement>(null);
 
+    // useEffect(() => {
+
+    //     if(!token) return;
+
+
+  
+    //     load(); //!!!!!!!!!!!!!!!
+    // },[token]);
+
+//IntersectionObserver
     useEffect(()=>{
-
-        if(!token) return;
-
         async function load(){
             setLoading(true);
             setErrorLoading('');
             try{
-                const {data: {data: {children}}} = await axios.get('https://oauth.reddit.com/rising/',{
+                const {data: {data: {after, children}}} = await axios.get('https://oauth.reddit.com/rising/',{
                 //const response = await axios.get('https://oauth.reddit.com/rising/',{
                     headers: {Authorization: `bearer ${token}`},
                     params: {
                         limit: 10,
+                        after: nextAfter,
                     }
                 });
                 //console.log('response:',children);
-                setPosts(children);
+                setNextAfter(after);
+                setPosts(prevChildren => prevChildren.concat(...children));
             } catch (error){
                 //console.error(error);
                 setErrorLoading(String(error));
             }
             setLoading(false);
         }
-  
-        load(); //!!!!!!!!!!!!!!!
-    },[token]);
+        //-----------------
+        const observer = new IntersectionObserver((entries) => {
+            if(entries[0].isIntersecting){
+                load();
+            } 
+        },{
+            rootMargin: '10px',
+        })
+        if(bottomOfList.current){
+           observer.observe(bottomOfList.current) 
+        }
+
+        return () => {
+            if(bottomOfList.current){
+                observer.unobserve(bottomOfList.current)
+            }
+        }
+    },[bottomOfList.current, nextAfter]);
 
 
     // const [posts] = usePostsData();
@@ -78,16 +104,18 @@ export default function CardsList (){
                return <Card data={post.data} key={post.data.id}/> 
              })}
 
-              {loading && (
-                  <div style={{textAlign: 'center'}}>
-                  Загрузка...
-              </div>
-              )}
-              {errorLoading && (
-                  <div role="alert" style={{textAlign: 'center'}}>
-                      {errorLoading}
-                  </div>
-              )}
+            <div ref={bottomOfList} />   
+
+            {loading && (
+                <div style={{textAlign: 'center'}}>
+                Загрузка...
+            </div>
+            )}
+            {errorLoading && (
+                <div role="alert" style={{textAlign: 'center'}}>
+                    {errorLoading}
+                </div>
+            )}
         </ul>
     )   
 
