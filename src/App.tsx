@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { hot } from 'react-hot-loader/root';
 import Layout from './shared/Layout';
 import './main.global.css';
@@ -26,6 +26,8 @@ const store = createStore(rootReducer, composeWithDevTools(
 
 function AppComponent(){
     
+    const [mounted, setMounted] = useState(false);
+
     // useEffect(()=>{
     //     const token = localStorage.getItem('token') || window.__token__;
     //     store dispatchEvent(setToken(token));
@@ -34,22 +36,23 @@ function AppComponent(){
     //     }
     // },[])
     useEffect(()=>{
- 
+        setMounted(true);
     },[])
-
 
     return (
         <Provider store={store}>
             <UserContextProvider >
                 <PostsContextProvider>
-                    <BrowserRouter>
-                        <Layout>
-                            <Header />
-                            <Content>
-                                <CardsList />
-                            </Content>
-                        </Layout>
-                    </BrowserRouter>
+                    {mounted && (
+                        <BrowserRouter>
+                            <Layout>
+                                <Header />
+                                <Content>
+                                    <CardsList />
+                                </Content>
+                            </Layout>
+                        </BrowserRouter> 
+                    )}
                 </PostsContextProvider>
             </UserContextProvider >
         </Provider>
