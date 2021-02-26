@@ -3,24 +3,25 @@ import styles from './post.less';
 import ReactDOM from 'react-dom';
 import CommentList from '../CommentList';
 import CommentFormContainer from '../CommentFormContainer';
+import { useHistory } from 'react-router-dom';
 
-interface IPost {
-	onClose?:()=> void;	
-}
+// interface IPost {
+// 	onClose?:()=> void;	
+// }
 
-export default function Post (props:IPost){
+export default function Post (){
 
 	const ref = useRef<HTMLDivElement>(null);
+	const history = useHistory();
 
 	useEffect(()=>{
 		function handleClick(event: MouseEvent) {
 			if(event.target instanceof Node && !ref.current?.contains(event.target)){
-				console.log('clicked!',event.target);
-				props.onClose?.();
+				history.push('/');
+				//	props.onClose?.();
 				//про эту последнюю точку f?.() между  ? и (), то она нужна для того, чтобы 
 				//не перепутать с тернарным оператором. Вот тут тред на эту тему можно 
 				//почитать https://github.com/claudepache/es-optional-chaining/issues/3
- 			
 			}
 			
 		};
