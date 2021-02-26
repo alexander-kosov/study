@@ -30,8 +30,6 @@ export default function CardCaption ({data}: ICardCaptionProps){
 
     //const [isModalOpened, setIsModalOpened] = useState(false);   
 
-
-
     return (
         <div className={styles.cardcaption}>
             <div className={styles.metaData}>

@@ -16,7 +16,7 @@ import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension'; 
 import { rootReducer } from './store';
 import thunk from 'redux-thunk';
-import { BrowserRouter, Link, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Link, Switch, Route, Redirect } from 'react-router-dom';
 import Post from './shared/Post';
 //import { nanoid } from 'nanoid';
 
@@ -24,6 +24,15 @@ const store = createStore(rootReducer, composeWithDevTools(
     applyMiddleware(thunk)
 ));
 
+function NoMatch(){
+    return (
+        <div>
+            <h1>
+            404 — страница не найдена
+            </h1>
+        </div>
+    )
+}
 
 function AppComponent(){
     
@@ -49,10 +58,21 @@ function AppComponent(){
                             <Layout>
                                 <Header />
                                 <Content>
-                                    <CardsList />
-                                    <Route path="/posts/:id">
-                                        <Post />
-                                    </Route>
+                                    <Switch>
+                                        <Redirect exact from="/" to="/posts" />
+                                        <Redirect from="/auth" to="/posts" />
+                                        <Route path="/posts">
+                                            <CardsList />
+                                            <Route path="/posts/:id">
+                                                <Post />
+                                            </Route>
+                                        </Route>
+                                        <Route path="*">
+                                            <h1 style={{ textAlign: 'center' }}>
+                                                404 - страница не найдена
+                                            </h1>
+                                        </Route>
+                                    </Switch>
                                 </Content>
                             </Layout>
                         </BrowserRouter> 
