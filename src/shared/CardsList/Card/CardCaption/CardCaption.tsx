@@ -4,6 +4,7 @@ import styles from './cardcaption.less';
 
 interface ICardCaptionProps {
     data: {
+        id: string;
         created_utc: number;
         author: string;
         url: string;
@@ -29,6 +30,8 @@ export default function CardCaption ({data}: ICardCaptionProps){
 
     //const [isModalOpened, setIsModalOpened] = useState(false);   
 
+
+
     return (
         <div className={styles.cardcaption}>
             <div className={styles.metaData}>
@@ -41,7 +44,7 @@ export default function CardCaption ({data}: ICardCaptionProps){
                 <span className={styles.createdAt}><span className={styles.publishedLabel}>Опубликовано </span>{realDate}</span>
             </div>
             <h2 className={styles.title}>
-                <Link to="/posts/1"
+                <Link to={`/posts/${data.id}`}
                 className={styles.postLink}
                 >
                     {data.title}

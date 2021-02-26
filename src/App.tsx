@@ -50,11 +50,9 @@ function AppComponent(){
                                 <Header />
                                 <Content>
                                     <CardsList />
-<Route path="/posts/:id">
-    <Post />
-</Route>
-                                    
-
+                                    <Route path="/posts/:id">
+                                        <Post />
+                                    </Route>
                                 </Content>
                             </Layout>
                         </BrowserRouter> 
