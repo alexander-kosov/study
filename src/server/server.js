@@ -9,14 +9,6 @@ const app = express();
 
 app.use('/static', express.static('./dist/client'));
 
-
-app.get('/',(req, res)=>{
-	res.header("Access-Control-Allow-Origin", "*");
-	res.send(
-		indexTemplate(ReactDOM.renderToString(App()))
-	);
-});
-
 app.get('/auth',(req, res)=>{
 	res.header("Access-Control-Allow-Origin", "*");
 	axios.post(
@@ -32,6 +24,13 @@ app.get('/auth',(req, res)=>{
 		);
 	})
 	.catch(console.log);
+});
+
+app.get('*',(req, res)=>{
+	res.header("Access-Control-Allow-Origin", "*");
+	res.send(
+		indexTemplate(ReactDOM.renderToString(App()))
+	);
 });
 
 app.listen(3000, ()=>{

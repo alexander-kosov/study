@@ -17,6 +17,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { rootReducer } from './store';
 import thunk from 'redux-thunk';
 import { BrowserRouter, Link, Switch, Route } from 'react-router-dom';
+import Post from './shared/Post';
 //import { nanoid } from 'nanoid';
 
 const store = createStore(rootReducer, composeWithDevTools(
@@ -49,6 +50,11 @@ function AppComponent(){
                                 <Header />
                                 <Content>
                                     <CardsList />
+<Route path="/posts/:id">
+    <Post />
+</Route>
+                                    
+
                                 </Content>
                             </Layout>
                         </BrowserRouter> 

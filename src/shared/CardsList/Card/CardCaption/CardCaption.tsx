@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import Post from '../../../Post';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './cardcaption.less';
 
 interface ICardCaptionProps {
@@ -27,8 +27,7 @@ export default function CardCaption ({data}: ICardCaptionProps){
       };
       let realDate = date.toLocaleString("ru", options);
 
-    const [isModalOpened, setIsModalOpened] = useState(false);   
-
+    //const [isModalOpened, setIsModalOpened] = useState(false);   
 
     return (
         <div className={styles.cardcaption}>
@@ -42,15 +41,15 @@ export default function CardCaption ({data}: ICardCaptionProps){
                 <span className={styles.createdAt}><span className={styles.publishedLabel}>Опубликовано </span>{realDate}</span>
             </div>
             <h2 className={styles.title}>
-                <a href="#post-url" 
+                <Link to="/posts/1"
                 className={styles.postLink}
-                onClick={()=>{setIsModalOpened(true); console.log("modal:",isModalOpened)}}>
+                >
                     {data.title}
-                </a>
+                </Link>
 
-                {isModalOpened && (
+                {/* {isModalOpened && (
                     <Post onClose={()=>{setIsModalOpened(false)}}/>
-                )}
+                )} */}
             </h2>
         </div>
     );
