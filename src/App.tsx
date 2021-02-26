@@ -16,6 +16,7 @@ import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension'; 
 import { rootReducer } from './store';
 import thunk from 'redux-thunk';
+import { BrowserRouter, Link, Switch, Route } from 'react-router-dom';
 //import { nanoid } from 'nanoid';
 
 const store = createStore(rootReducer, composeWithDevTools(
@@ -39,15 +40,16 @@ function AppComponent(){
 
     return (
         <Provider store={store}>
- 
             <UserContextProvider >
                 <PostsContextProvider>
-                <Layout>
-                    <Header />
-                    <Content>
-                        <CardsList />
-                    </Content>
-                </Layout>
+                    <BrowserRouter>
+                        <Layout>
+                            <Header />
+                            <Content>
+                                <CardsList />
+                            </Content>
+                        </Layout>
+                    </BrowserRouter>
                 </PostsContextProvider>
             </UserContextProvider >
         </Provider>
