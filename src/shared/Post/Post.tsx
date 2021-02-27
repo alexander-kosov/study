@@ -17,7 +17,7 @@ export default function Post (){
 	useEffect(()=>{
 		function handleClick(event: MouseEvent) {
 			if(event.target instanceof Node && !ref.current?.contains(event.target)){
-				history.push('/');
+				history.push('/posts');
 				//	props.onClose?.();
 				//про эту последнюю точку f?.() между  ? и (), то она нужна для того, чтобы 
 				//не перепутать с тернарным оператором. Вот тут тред на эту тему можно 
