@@ -58,11 +58,12 @@ function AppComponent(){
                             <Layout>
                                 <Header />
                                 <Content>
+                                    <CardsList />
                                     <Switch>
                                         <Redirect exact from="/" to="/posts" />
                                         <Redirect from="/auth" to="/posts" />
                                         <Route path="/posts">
-                                            <CardsList />
+                                            
                                             <Route path="/posts/:id">
                                                 <Post />
                                             </Route>
