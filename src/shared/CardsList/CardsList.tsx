@@ -45,16 +45,17 @@ export default function CardsList (){
                 }
             });
             //console.log('response:',children);
-            setCount(prevCount=>prevCount+1);
+            
             setNextAfter(after);
             setPosts(prevChildren => prevChildren.concat(...children));
-            
-            
+            setCount(prevCount=>prevCount+1);
+
         } catch (error){
             //console.error(error);
             setErrorLoading(String(error));
         }
-        setLoading(false);console.log("count:",count);
+        setLoading(false);
+        console.log("count:",count);
     }
 
 
