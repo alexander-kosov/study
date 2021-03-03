@@ -11,7 +11,7 @@ interface IUserBlockProps {
 
 export default function UserBlock ({avatarSrc, username, loading}: IUserBlockProps){
 	return (
-		<a  href="https://www.reddit.com/api/v1/authorize?client_id=b0t5J709nNhl3Q&response_type=code&
+		<a  href="https://www.reddit.com/api/v1/authorize?client_id=ULIpl3RaxojF1A&response_type=code&
 		state=random_string&redirect_uri=https://demo-redd-skillbox.herokuapp.com/auth&duration=permanent&scope=read submit identity"
 			className={styles.userBox}>
 			<div className={styles.avatarBox}>
