@@ -432,12 +432,13 @@ var server_1 = __importDefault(__webpack_require__(15));
 var App_1 = __webpack_require__(16);
 var indexTemplate_1 = __webpack_require__(104);
 var axios_1 = __importDefault(__webpack_require__(3));
+var PORT = process.env.PORT || 3000;
 var app = express_1.default();
 app.use('/static', express_1.default.static('./dist/client'));
 app.get('/auth', function (req, res) {
     res.header("Access-Control-Allow-Origin", "*");
     axios_1.default.post('https://www.reddit.com/api/v1/access_token', "grant_type=authorization_code&code=" + req.query.code + "&redirect_uri=https://demo-redd-skillbox.herokuapp.com/auth", {
-        auth: { username: 'undefined', password: 'oYcwI-3QvrfPkEiW9o_6nf3cqtBfnA' },
+        auth: { username: 'undefined', password: process.env.SECRET },
         headers: { 'Content-type': 'application/x-www-form-urlencoded' }
     })
         .then(function (_a) {
@@ -450,8 +451,8 @@ app.get('*', function (req, res) {
     res.header("Access-Control-Allow-Origin", "*");
     res.send(indexTemplate_1.indexTemplate(server_1.default.renderToString(App_1.App())));
 });
-app.listen(3000, function () {
-    console.log('Server started on http://demo-redd-skillbox.herokuapp.com:3000');
+app.listen(PORT, function () {
+    console.log("Server started on https://demo-redd-skillbox.herokuapp.com:" + PORT);
 });
 
 
@@ -1386,7 +1387,6 @@ function CardsList() {
                             })];
                     case 2:
                         _a = (_b.sent()).data.data, after = _a.after, children_1 = _a.children;
-                        //console.log('response:',children);
                         setNextAfter(after);
                         setPosts(function (prevChildren) { return prevChildren.concat.apply(prevChildren, children_1); });
                         setCount(function (prevCount) { return prevCount + 1; });
@@ -1398,7 +1398,6 @@ function CardsList() {
                         return [3 /*break*/, 4];
                     case 4:
                         setLoading(false);
-                        console.log("count:", count);
                         return [2 /*return*/];
                 }
             });
@@ -1855,7 +1854,6 @@ function Dropdown(_a) {
         var headBottom = head === null || head === void 0 ? void 0 : head.bottom;
         var headRight = head === null || head === void 0 ? void 0 : head.right;
         setIsDropdownCoord({ top: headBottom + 'px', left: headRight + 'px' });
-        //console.log('coord', isDropdownCoord);
     }, [isDropdownOpen]);
     react_1.default.useEffect(function () { return setIsDropdownOpen(isOpen); }, [isOpen]);
     react_1.default.useEffect(function () { return isDropdownOpen ? onOpen() : onClose(); }, [isDropdownOpen]);
@@ -2416,7 +2414,6 @@ function ResponseComment(props) {
     function handleSubmit(event) {
         var _a;
         event.preventDefault();
-        console.log(value);
         (_a = props.onClose) === null || _a === void 0 ? void 0 : _a.call(props);
     }
     react_1.useEffect(function () {
@@ -2499,7 +2496,6 @@ function CommentFormContainer() {
     }
     function handleSubmit(event) {
         event.preventDefault();
-        console.log(value);
     }
     return (react_1.default.createElement(CommentForm_1.default
     // value={value} 
