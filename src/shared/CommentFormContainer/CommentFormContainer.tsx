@@ -16,7 +16,6 @@ export default function CommentFormContainer (){
 
     function handleSubmit(event: FormEvent){
         event.preventDefault();
-        console.log(value);
     }
     
 

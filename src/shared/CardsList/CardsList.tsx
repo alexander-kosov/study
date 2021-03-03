@@ -44,7 +44,6 @@ export default function CardsList (){
                     after: nextAfter,
                 }
             });
-            //console.log('response:',children);
             
             setNextAfter(after);
             setPosts(prevChildren => prevChildren.concat(...children));
@@ -55,7 +54,6 @@ export default function CardsList (){
             setErrorLoading(String(error));
         }
         setLoading(false);
-        console.log("count:",count);
     }
 
 

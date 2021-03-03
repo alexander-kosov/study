@@ -25,7 +25,6 @@ export default function Dropdown ({button, children, isOpen, onClose=NOOP, onOpe
         let headBottom = head?.bottom;
         let headRight = head?.right;
         setIsDropdownCoord({top: headBottom+'px', left:headRight+'px'});
-        //console.log('coord', isDropdownCoord);
 	},[isDropdownOpen]);
 
 

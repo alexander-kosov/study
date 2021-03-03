@@ -16,7 +16,6 @@ export default function ResponseComment (props:IResponseComment){
 
   function handleSubmit(event: FormEvent){
       event.preventDefault();
-      console.log(value);
       props.onClose?.();
   }
   
