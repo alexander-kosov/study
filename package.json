@@ -2,12 +2,16 @@
   "name": "lesson-1",
   "version": "1.0.0",
   "description": "lesson 2",
+  "engines": {
+    "node": "14.x"
+  },
   "main": "index.js",
   "scripts": {
     "build:dev": "env NODE_ENV=development webpack --config webpack.config.js",
-    "build:prod": "env NODE_ENV=production webpack --config webpack.config.js",
+    "build": "env NODE_ENV=production webpack --config webpack.config.js",
     "dev": "env NODE_ENV=development CLIENT_ID=b0t5J709nNhl3Q node ./bin/dev.js",
-    "test": "jest"
+    "test": "jest",
+    "start": "node ./dist/server/server.js"
   },
   "author": "Alexander Kosov",
   "license": "ISC",
@@ -25,9 +29,7 @@
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
-    "webpack": "^4.44.2"
-  },
-  "devDependencies": {
+    "webpack": "^4.44.2",
     "@hot-loader/react-dom": "^17.0.1",
     "@types/classnames": "^2.2.11",
     "@types/enzyme": "^3.10.8",
@@ -56,5 +58,6 @@
     "webpack-dev-server": "^3.11.2",
     "webpack-hot-middleware": "^2.25.0",
     "webpack-node-externals": "^2.5.2"
-  }
+  },
+  "devDependencies": {}
 }
