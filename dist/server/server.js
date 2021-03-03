@@ -436,7 +436,7 @@ var app = express_1.default();
 app.use('/static', express_1.default.static('./dist/client'));
 app.get('/auth', function (req, res) {
     res.header("Access-Control-Allow-Origin", "*");
-    axios_1.default.post('https://www.reddit.com/api/v1/access_token', "grant_type=authorization_code&code=" + req.query.code + "&redirect_uri=http://demo-redd-skillbox.herokuapp.com/auth", {
+    axios_1.default.post('https://www.reddit.com/api/v1/access_token', "grant_type=authorization_code&code=" + req.query.code + "&redirect_uri=https://demo-redd-skillbox.herokuapp.com/auth", {
         auth: { username: 'undefined', password: 'oYcwI-3QvrfPkEiW9o_6nf3cqtBfnA' },
         headers: { 'Content-type': 'application/x-www-form-urlencoded' }
     })
@@ -852,7 +852,7 @@ var Text_1 = __importStar(__webpack_require__(8));
 var Icons_1 = __webpack_require__(2);
 function UserBlock(_a) {
     var avatarSrc = _a.avatarSrc, username = _a.username, loading = _a.loading;
-    return (react_1.default.createElement("a", { href: "https://www.reddit.com/api/v1/authorize?client_id=b0t5J709nNhl3Q&response_type=code&\r\n\t\tstate=random_string&redirect_uri=http://demo-redd-skillbox.herokuapp.com/auth&duration=permanent&scope=read submit identity", className: userblock_less_1.default.userBox },
+    return (react_1.default.createElement("a", { href: "https://www.reddit.com/api/v1/authorize?client_id=b0t5J709nNhl3Q&response_type=code&\r\n\t\tstate=random_string&redirect_uri=https://demo-redd-skillbox.herokuapp.com/auth&duration=permanent&scope=read submit identity", className: userblock_less_1.default.userBox },
         react_1.default.createElement("div", { className: userblock_less_1.default.avatarBox }, avatarSrc ? react_1.default.createElement("img", { src: avatarSrc, alt: "user avatar", className: userblock_less_1.default.avatarImage })
             : react_1.default.createElement(Icons_1.AnonIcon, null)),
         react_1.default.createElement("div", { className: userblock_less_1.default.username },
